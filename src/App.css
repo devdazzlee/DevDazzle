@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+.text-gradient {
+    background: linear-gradient(135deg, #5A2E7F 0%, #CA669D 50%);
+    -webkit-background-clip: text; /* Apply the gradient to text */
+    background-clip: text; /* Apply the gradient to text */
+    color: transparent; /* Hide the original text color */
+}
+.googlefont{
+    font-family: 'Montserrat', sans-serif;
+
+}
+body{
+   background-color: #0C0C0D;  
+}
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: auto
+  }
+  
+  .slider-track {
+    display: flex;
+    animation: slideAnimation 20s linear infinite;
+  
+  }
+  
+  .slide {
+    flex: 0 0 calc(25% - 20px); /* Adjust as needed */
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px; /* Adjust as needed */
+  }
+  
+  .slide img {
+    width: 120px; /* Fixed width */
+    height: 120px; /* Fixed height */
+    object-fit: contain; /* Maintain aspect ratio */
+    border-radius: 50%; /* Circular images */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  }
+  @keyframes slideAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @media (min-width: 576px) {
+    .slide {
+      flex: 0 0 50%; /* Two slides per row on small screens */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .slide {
+      flex: 0 0 33.33%; /* Three slides per row on medium screens */
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .slide {
+      flex: 0 0 25%; /* Four slides per row on large screens */
+    }
+  }
+  /* Style the tabs when they are in focus */
+.custom-tabs .react-tabs__tab:focus {
+  color:  black !important;
+  border: none !important; /* Change text color to black */
+  border-bottom: none !important; /* Remove the bottom border */
+  outline: none; /* Remove the default focus outline */
+}
+.react-tabs__tab{
+  color:#F170B8 !important;
+  border: none !important; /* Change text color to black */
+  border-bottom: none !important; /* Remove the bottom border */
+  outline: none; /* Remove the default focus outline */
+}
+@media (max-width: 767px) {
+  .custom-tabs {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}

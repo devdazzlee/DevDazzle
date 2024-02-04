@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.63ce1b4f.css",
+    "main.js": "/static/js/main.c1486287.js",
+    "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
+    "static/media/3d-render-solar-system-background-with-colourful-nebula (1).jpg": "/static/media/3d-render-solar-system-background-with-colourful-nebula (1).1b600abc21f1e33c3d8b.jpg",
+    "static/media/Capture.jpeg": "/static/media/Capture.a35e3180c804fe8b7dd2.jpeg",
+    "static/media/202809_redis_icon.png": "/static/media/202809_redis_icon.5b5799aea9a484e3bc71.png",
+    "static/media/galaxy web logo.png": "/static/media/galaxy web logo.8086eca62399036e539a.png",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.63ce1b4f.css.map": "/static/css/main.63ce1b4f.css.map",
+    "main.c1486287.js.map": "/static/js/main.c1486287.js.map",
+    "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.63ce1b4f.css",
+    "static/js/main.c1486287.js"
+  ]
+}
