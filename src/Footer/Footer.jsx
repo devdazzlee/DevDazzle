@@ -97,7 +97,7 @@ const Footer = () => {
               </svg> */}
             
             <h1  onClick={() => {
-    window.location.href = 'http://localhost:3000/';
+    window.location.href = 'https://devdazzlee.vercel.app/';
   }} style={{"color" :"#AD44DD" , "fontFamily" :"cursive"}} className='text-white text-4xl mb-2' ><span style={{"color":"#CA669D"}} >{`<`}</span>{name}<span style={{"color":"#CA669D"}} >{`/>`}</span></h1>
      
             {/* </h6> */}
