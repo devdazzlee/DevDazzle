@@ -122,7 +122,7 @@ const ContactusForm = () => {
                 className="p-6 flex flex-col justify-center sm:rounded-lg shadow-lg"
               >
                 <h1 style={{ color: "#F170B8" }} className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-                  Send Us a textarea
+                  Send Us a Messege
                 </h1>
                 <div className="flex flex-col mt-4">
                   <label htmlFor="name" className="text-sm font-semibold text-white">
