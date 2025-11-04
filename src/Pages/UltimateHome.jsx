@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Sparkles, Zap, Code, Smartphone, Brain, TrendingUp, Users, Star, Check, Play, Rocket, Shield, Globe, Award, Target, Heart, Cpu, Database } from 'lucide-react';
+import { ArrowRight, Sparkles, Zap, Code, Smartphone, Brain, TrendingUp, Users, Star, Check, Play, Rocket, Shield, Globe, Award, Target, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MegaNavbar from '../components/layout/MegaNavbar';
 import NewFooter from '../components/layout/NewFooter';
 import { Button } from '../components/ui/button';
 import { CardContainer, CardBody, CardItem } from '../components/ui/3d-card';
-import { BackgroundGradient } from '../components/ui/background-gradient';
 import { InfiniteMovingCards } from '../components/ui/infinite-moving-cards';
 import { LampContainer } from '../components/ui/lamp';
 import { TESTIMONIALS } from '../utils/company-data';

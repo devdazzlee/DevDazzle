@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Clock, Globe, MessageSquare, CheckCircle, ArrowRight, Sparkles, Zap, Users, Award, Star } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, Globe, CheckCircle, ArrowRight, Sparkles, Zap, Users, Award, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MegaNavbar from '../components/layout/MegaNavbar';
 import NewFooter from '../components/layout/NewFooter';
-import { CardContainer, CardBody, CardItem } from '../components/ui/3d-card';
-import { BackgroundGradient } from '../components/ui/background-gradient';
 import { LampContainer } from '../components/ui/lamp';
 import { Button } from '../components/ui/button';
 import { COMPANY_INFO, STATS } from '../utils/company-data';
@@ -144,18 +142,16 @@ const Contact = () => {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.1, y: -10 }}
               >
-                <a href={method.href}>
-                  <CardContainer className="inter-var">
-                    <CardBody className="bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 relative w-full h-full p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all">
-                      <CardItem translateZ="50" className="text-center">
-                        <div className={cn("w-16 h-16 mx-auto mb-6 rounded-xl bg-gradient-to-br flex items-center justify-center", method.color)}>
-                          <method.icon className="h-8 w-8 text-white" />
-                        </div>
-                        <h3 className="text-xl font-display font-bold mb-3 text-white">{method.label}</h3>
-                        <p className="text-gray-400 leading-relaxed">{method.value}</p>
-                      </CardItem>
-                    </CardBody>
-                  </CardContainer>
+                <a href={method.href} className="block w-full h-full">
+                  <div className="bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 relative w-full h-full p-6 lg:p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all">
+                    <div className="text-center">
+                      <div className={cn("w-14 h-14 lg:w-16 lg:h-16 mx-auto mb-4 lg:mb-6 rounded-xl bg-gradient-to-br flex items-center justify-center", method.color)}>
+                        <method.icon className="h-7 w-7 lg:h-8 lg:w-8 text-white" />
+                      </div>
+                      <h3 className="text-lg lg:text-xl font-display font-bold mb-2 lg:mb-3 text-white">{method.label}</h3>
+                      <p className="text-gray-400 leading-relaxed text-sm lg:text-base break-words">{method.value}</p>
+                    </div>
+                  </div>
                 </a>
               </motion.div>
             ))}
@@ -368,17 +364,15 @@ const Contact = () => {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
               >
-                <CardContainer className="inter-var">
-                  <CardBody className="bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 relative w-full h-full p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all">
-                    <CardItem translateZ="50" className="text-center">
-                      <div className={cn("w-16 h-16 mx-auto mb-6 rounded-xl bg-gradient-to-br flex items-center justify-center", office.color)}>
-                        <office.icon className="h-8 w-8 text-white" />
-                      </div>
-                      <h3 className="text-2xl font-display font-bold mb-2 text-white">{office.city}</h3>
-                      <p className="text-gray-400">{office.country}</p>
-                    </CardItem>
-                  </CardBody>
-                </CardContainer>
+                <div className="bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 relative w-full h-full p-6 lg:p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all">
+                  <div className="text-center">
+                    <div className={cn("w-14 h-14 lg:w-16 lg:h-16 mx-auto mb-4 lg:mb-6 rounded-xl bg-gradient-to-br flex items-center justify-center", office.color)}>
+                      <office.icon className="h-7 w-7 lg:h-8 lg:w-8 text-white" />
+                    </div>
+                    <h3 className="text-xl lg:text-2xl font-display font-bold mb-2 text-white">{office.city}</h3>
+                    <p className="text-gray-400 text-sm lg:text-base">{office.country}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ExternalLink, Filter, Award, TrendingUp, Users, Zap, Star, CheckCircle, ArrowRight, Sparkles, Code, Brain, ShoppingCart, Heart, Briefcase } from 'lucide-react';
+import { ExternalLink, Award, TrendingUp, Users, Star, CheckCircle, ArrowRight, Sparkles, Code, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MegaNavbar from '../components/layout/MegaNavbar';
 import NewFooter from '../components/layout/NewFooter';
 import { LampContainer } from '../components/ui/lamp';
 import { InfiniteMovingCards } from '../components/ui/infinite-moving-cards';
 import { Button } from '../components/ui/button';
-import { PORTFOLIO_PROJECTS, TESTIMONIALS, STATS } from '../utils/company-data';
+import { PORTFOLIO_PROJECTS, TESTIMONIALS } from '../utils/company-data';
 import { cn } from '../lib/utils';
 
 const Portfolio = () => {

@@ -1,12 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Briefcase, MapPin, Clock, DollarSign, Users, Heart, Zap, Award, Globe, Coffee, Rocket, ArrowRight, CheckCircle, Star, Sparkles, TrendingUp, Code, Brain, Palette, Shield } from 'lucide-react';
+import { MapPin, DollarSign, Users, Heart, Zap, Award, Globe, Coffee, Rocket, ArrowRight, CheckCircle, Sparkles, TrendingUp, Code, Brain, Palette, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MegaNavbar from '../components/layout/MegaNavbar';
 import NewFooter from '../components/layout/NewFooter';
 import { CardContainer, CardBody, CardItem } from '../components/ui/3d-card';
-import { BackgroundGradient } from '../components/ui/background-gradient';
 import { LampContainer } from '../components/ui/lamp';
 import { Button } from '../components/ui/button';
 import { cn } from '../lib/utils';

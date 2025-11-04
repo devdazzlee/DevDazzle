@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Linkedin, Twitter, Github, Award, Users, Target, Heart, Rocket, Globe, Zap, Shield, TrendingUp, Star, CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
+import { Linkedin, Twitter, Github, Award, Target, Heart, Rocket, Globe, Zap, Shield, ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MegaNavbar from '../components/layout/MegaNavbar';
 import NewFooter from '../components/layout/NewFooter';
