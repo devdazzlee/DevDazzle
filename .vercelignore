@@ -1,0 +1,16 @@
+node_modules
+.git
+*.md
+*.log
+.DS_Store
+src/Pages_old
+src/About_us
+src/Footer
+src/CuttingEdge
+src/Heading_Services
+src/Scrool_Top
+src/ServicesTabs
+src/Seventh
+src/Testimonials
+build
+

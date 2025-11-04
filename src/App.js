@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
+import { Routes, Route } from 'react-router-dom';
 import './styles/globals.css';
 
 // Eager load home
@@ -37,12 +36,10 @@ const PageLoader = () => (
 
 function App() {
   return (
-    <HelmetProvider>
-      <BrowserRouter>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            {/* Home */}
-            <Route path="/" element={<UltimateHome />} />
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        {/* Home */}
+        <Route path="/" element={<UltimateHome />} />
 
             {/* AI & Automation */}
             <Route path="/services/ai-business-agents" element={<AIBusinessAgents />} />
@@ -96,12 +93,10 @@ function App() {
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
 
-            {/* Catch all */}
-            <Route path="*" element={<UltimateHome />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </HelmetProvider>
+        {/* Catch all */}
+        <Route path="*" element={<UltimateHome />} />
+      </Routes>
+    </Suspense>
   );
 }
 
