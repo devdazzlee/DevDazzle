@@ -1,0 +1,12 @@
+{
+    "redirects": [
+      {
+        "source": "/(.*)",
+        "has": [
+          { "type": "host", "value": "www.devdazzlee.vercel.app" }
+        ],
+        "destination": "https://devdazzlee.vercel.app/:1",
+        "permanent": true
+      }
+    ]
+  }  
