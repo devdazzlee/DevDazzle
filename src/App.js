@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './styles/globals.css';
 import './App.css';
-import UltimateHome from './pages/UltimateHome';
+import UltimateHome from './pages/UltimateHome.jsx';
 
 // Eager load home
 
