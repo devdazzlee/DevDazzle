@@ -32,7 +32,7 @@ const UltimateHome = () => {
       <LampContainer className="pt-8 sm:pt-12 md:pt-16">
         <motion.div
           style={{ opacity, scale }}
-          className="flex flex-col items-center justify-center relative z-50"
+          className="flex flex-col items-center justify-center relative z-10"
         >
           {/* Founder Badge - Fixed Position */}
           <motion.div
