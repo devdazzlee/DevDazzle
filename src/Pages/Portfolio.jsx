@@ -34,10 +34,10 @@ const Portfolio = () => {
       <MegaNavbar />
       
       {/* Spacer for fixed navbar */}
-      <div className="h-24 md:h-32"></div>
+      <div className="h-20 sm:h-24 md:h-28"></div>
 
       {/* SECTION 1: DRAMATIC HERO */}
-      <LampContainer className="pb-20">
+      <LampContainer className="pb-10 md:pb-20 pt-8 sm:pt-12 md:pt-16">
         <motion.div
           style={{ opacity, scale }}
           className="flex flex-col items-center justify-center relative z-50"
@@ -48,9 +48,9 @@ const Portfolio = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="mb-8"
           >
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border-2 border-cyan-400/50 rounded-full px-8 py-4 shadow-2xl shadow-cyan-500/50">
-              <Sparkles className="h-6 w-6 text-cyan-400 animate-pulse" />
-              <span className="text-lg font-bold text-white">
+            <div className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-cyan-400/50 md:border-2 rounded-full px-4 md:px-8 py-2 md:py-4 shadow-2xl shadow-cyan-500/50 backdrop-blur-sm">
+              <Sparkles className="h-4 w-4 md:h-6 md:w-6 text-cyan-400 animate-pulse flex-shrink-0" />
+              <span className="text-xs sm:text-sm md:text-lg font-bold text-white text-center">
                 500+ Projects • 250+ Clients • 30+ Countries
               </span>
             </div>
@@ -60,7 +60,7 @@ const Portfolio = () => {
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
-            className="bg-gradient-to-br from-white to-gray-400 py-6 bg-clip-text text-center text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tight text-transparent leading-none"
+            className="bg-gradient-to-br from-white to-gray-400 py-4 md:py-6 bg-clip-text text-center text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-transparent leading-tight px-4"
           >
             OUR PORTFOLIO
           </motion.h1>
@@ -77,7 +77,7 @@ const Portfolio = () => {
       </LampContainer>
 
       {/* SECTION 2: PORTFOLIO STATS */}
-      <section className="py-24 px-4 bg-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-black relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent)]"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -114,7 +114,7 @@ const Portfolio = () => {
       </section>
 
       {/* SECTION 3: FEATURED PROJECTS */}
-      <section className="py-32 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -122,7 +122,7 @@ const Portfolio = () => {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="text-5xl md:text-7xl font-display font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent px-4 leading-tight">
               Featured Projects
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
@@ -279,7 +279,7 @@ const Portfolio = () => {
       </section>
 
       {/* SECTION 4: ALL PROJECTS WITH FILTERS */}
-      <section className="py-32 px-4 bg-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-black relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -378,7 +378,7 @@ const Portfolio = () => {
       </section>
 
       {/* SECTION 5: TESTIMONIALS */}
-      <section className="py-32 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -408,7 +408,7 @@ const Portfolio = () => {
       </section>
 
       {/* SECTION 6: CTA */}
-      <section className="py-32 px-4 bg-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-black relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}

@@ -25,35 +25,35 @@ const Home = () => {
       <NewNavbar />
 
       {/* HERO SECTION - Dark with Spotlight */}
-      <div className="min-h-screen w-full relative flex items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] overflow-hidden">
+      <div className="w-full relative bg-black/[0.96] antialiased bg-grid-white/[0.02] overflow-hidden flex items-center justify-center" style={{ marginTop: '80px', minHeight: 'calc(100vh - 80px)' }}>
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
         
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-32 md:pt-0 text-center"
+          className="p-4 max-w-7xl mx-auto relative z-10 w-full text-center py-20"
         >
-          {/* Founder Badge */}
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-full px-6 py-3 mb-8"
-          >
-            <Sparkles className="h-5 w-5 text-purple-400" />
-            <span className="text-sm font-medium text-gray-200">Founded by Ahmed Raza | Est. 2008 | 250+ Clients Worldwide</span>
-          </motion.div>
+            {/* Founder Badge */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-full px-6 py-3 mb-8"
+            >
+              <Sparkles className="h-5 w-5 text-purple-400" />
+              <span className="text-sm font-medium text-gray-200">Founded by Ahmed Raza | Est. 2008 | 250+ Clients Worldwide</span>
+            </motion.div>
 
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 leading-tight">
-            Transforming
-            <br />
-            <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent animate-gradient">
-              Digital Dreams
-            </span>
-            <br />
-            into Reality
-          </h1>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 leading-tight">
+              Transforming
+              <br />
+              <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent animate-gradient">
+                Digital Dreams
+              </span>
+              <br />
+              into Reality
+            </h1>
 
           <motion.p
             initial={{ opacity: 0 }}

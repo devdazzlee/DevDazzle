@@ -26,25 +26,25 @@ const UltimateHome = () => {
       <MegaNavbar />
       
       {/* Spacer for fixed navbar */}
-      <div className="h-24 md:h-32"></div>
+      <div className="h-20 sm:h-24 md:h-28"></div>
 
       {/* SECTION 1: DRAMATIC LAMP HERO - NO COLLISION! */}
-      <LampContainer>
+      <LampContainer className="pt-8 sm:pt-12 md:pt-16">
         <motion.div
           style={{ opacity, scale }}
           className="flex flex-col items-center justify-center relative z-50"
         >
-          {/* Founder Badge - Floating Animation */}
+          {/* Founder Badge - Fixed Position */}
           <motion.div
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="mb-8 animate-float"
+            className="mb-6 md:mb-8"
           >
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border-2 border-cyan-400/50 rounded-full px-8 py-4 shadow-2xl shadow-cyan-500/50">
-              <Sparkles className="h-6 w-6 text-cyan-400 animate-pulse" />
-              <span className="text-lg font-bold text-white">
-                Founded by <span className="text-cyan-400">Ahmed Raza</span> | Est. 2008 | 250+ Global Clients
+            <div className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-cyan-400/50 md:border-2 rounded-full px-4 md:px-8 py-2 md:py-4 shadow-2xl shadow-cyan-500/50 backdrop-blur-sm">
+              <Sparkles className="h-4 w-4 md:h-6 md:w-6 text-cyan-400 animate-pulse flex-shrink-0" />
+              <span className="text-xs sm:text-sm md:text-lg font-bold text-white text-center whitespace-nowrap">
+                Founded by <span className="text-cyan-400">Ahmed Raza</span> | Est. 2008 | 250+ Clients
               </span>
             </div>
           </motion.div>
@@ -58,7 +58,7 @@ const UltimateHome = () => {
               duration: 1,
               ease: "easeOut",
             }}
-            className="bg-gradient-to-br from-white to-gray-400 py-6 bg-clip-text text-center text-7xl md:text-9xl lg:text-[12rem] font-bold tracking-tight text-transparent leading-none"
+            className="bg-gradient-to-br mt-4 md:mt-8 from-white to-gray-400 py-4 md:py-6 bg-clip-text text-center text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-transparent leading-tight px-4"
           >
             TRANSFORMING
           </motion.h1>
@@ -71,9 +71,9 @@ const UltimateHome = () => {
               duration: 1,
               ease: "backOut",
             }}
-            className="my-8"
+            className="my-4 md:my-8 px-4"
           >
-            <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient leading-tight">
               DIGITAL DREAMS
             </h2>
           </motion.div>
@@ -85,7 +85,7 @@ const UltimateHome = () => {
               delay: 1.6,
               duration: 0.8,
             }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white px-4 leading-tight"
           >
             INTO REALITY
           </motion.h3>
@@ -95,10 +95,11 @@ const UltimateHome = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2, duration: 1 }}
-            className="mt-12 text-2xl md:text-3xl text-gray-300 max-w-5xl text-center leading-relaxed font-medium"
+            className="mt-8 md:mt-12 text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-5xl text-center leading-relaxed font-medium px-4"
           >
             Premium Web Development • AI Solutions • Mobile Apps • Digital Innovation
-            <br />
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
             <span className="text-cyan-400 font-bold">500+ Projects</span> • 
             <span className="text-purple-400 font-bold"> 98% Satisfaction</span> • 
             <span className="text-pink-400 font-bold"> 15+ Years</span>
@@ -109,30 +110,30 @@ const UltimateHome = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.4, duration: 0.6 }}
-            className="flex gap-6 justify-center flex-wrap mt-16"
+            className="flex gap-4 md:gap-6 justify-center flex-wrap mt-8 md:mt-16 px-4"
           >
             <Link to="/contact">
               <motion.div
-                whileHover={{ scale: 1.1, rotate: 2 }}
+                whileHover={{ scale: 1.05, rotate: 1 }}
                 whileTap={{ scale: 0.95 }}
                 className="relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-2xl blur-xl animate-pulse"></div>
-                <Button variant="gradient" size="xl" className="relative text-2xl px-12 py-8 h-auto font-bold shadow-2xl">
-                  <Rocket className="mr-3 h-7 w-7 animate-bounce" />
-                  START YOUR PROJECT
-                  <ArrowRight className="ml-3 h-7 w-7" />
+                <Button variant="gradient" size="xl" className="relative text-sm sm:text-base md:text-lg lg:text-xl px-6 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8 h-auto font-bold shadow-2xl">
+                  <Rocket className="mr-2 h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 animate-bounce" />
+                  <span className="whitespace-nowrap">START PROJECT</span>
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
                 </Button>
               </motion.div>
             </Link>
 
             <motion.div
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="outline" size="xl" className="text-2xl px-12 py-8 h-auto border-4 border-cyan-500/50 hover:border-cyan-400 hover:bg-cyan-500/10 font-bold">
-                <Play className="mr-3 h-7 w-7" />
-                WATCH DEMO
+              <Button variant="outline" size="xl" className="text-sm sm:text-base md:text-lg lg:text-xl px-6 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8 h-auto border-2 md:border-4 border-cyan-500/50 hover:border-cyan-400 hover:bg-cyan-500/10 font-bold">
+                <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+                <span className="whitespace-nowrap">WATCH DEMO</span>
               </Button>
             </motion.div>
           </motion.div>
@@ -140,7 +141,7 @@ const UltimateHome = () => {
       </LampContainer>
 
       {/* SECTION 2: EXTREME 3D STATS CARDS */}
-      <section className="py-40 px-4 bg-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-black relative overflow-hidden">
         {/* Animated Background Orbs */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-[150px] animate-pulse"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/20 rounded-full blur-[150px] animate-pulse" style={{animationDelay: '1s'}}></div>
@@ -150,12 +151,12 @@ const UltimateHome = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-24"
+            className="text-center mb-12 md:mb-16 lg:mb-20"
           >
-            <h2 className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient px-4 leading-tight">
               TRUSTED WORLDWIDE
             </h2>
-            <p className="text-3xl text-gray-300 font-medium">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 font-medium px-4">
               Global leaders choose DevDazzle for digital excellence
             </p>
           </motion.div>
@@ -205,7 +206,7 @@ const UltimateHome = () => {
                     <CardItem
                       translateZ="100"
                       as="div"
-                      className="text-7xl font-bold text-center bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-4"
+                      className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-4 leading-tight"
                     >
                       {stat.value}
                     </CardItem>
@@ -226,7 +227,7 @@ const UltimateHome = () => {
       </section>
 
       {/* SECTION 3: EXTREME 3D SERVICE CARDS */}
-      <section className="py-40 px-4 bg-gradient-to-b from-black via-purple-950/30 to-black relative">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 bg-gradient-to-b from-black via-purple-950/30 to-black relative">
         <div className="absolute inset-0 bg-grid-white/[0.02]"></div>
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -235,17 +236,17 @@ const UltimateHome = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-24"
+            className="text-center mb-12 md:mb-16 lg:mb-20"
           >
-            <h2 className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient px-4 leading-tight">
               OUR PREMIUM SERVICES
             </h2>
-            <p className="text-3xl text-gray-300 max-w-4xl mx-auto font-medium">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto font-medium px-4">
               Cutting-edge solutions powered by advanced technology and creative excellence
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
             {[
               {
                 icon: Brain,
@@ -316,7 +317,7 @@ const UltimateHome = () => {
               >
                 <Link to={service.link}>
                   <CardContainer className="inter-var">
-                    <CardBody className={cn("bg-gradient-to-br", service.gradient, "relative group/card hover:shadow-2xl hover:shadow-purple-500/60 border-2 border-white/30 w-full h-auto rounded-3xl p-10 transform-gpu")}>
+                    <CardBody className={cn("bg-gradient-to-br", service.gradient, "relative group/card hover:shadow-2xl hover:shadow-purple-500/60 border-2 border-white/30 w-full h-auto rounded-3xl p-6 sm:p-8 md:p-10 transform-gpu")}>
                       {/* Floating Icon */}
                       <CardItem
                         translateZ="200"
@@ -415,7 +416,7 @@ const UltimateHome = () => {
       </section>
 
       {/* SECTION 4: WHY DEVDAZZLE - 3D Cards with Extreme Depth */}
-      <section className="py-40 px-4 bg-gradient-to-b from-black via-slate-900 to-black relative">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 bg-gradient-to-b from-black via-slate-900 to-black relative">
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/30 rounded-full blur-[200px] animate-pulse"></div>
         </div>
@@ -425,17 +426,17 @@ const UltimateHome = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-24"
+            className="text-center mb-12 md:mb-16 lg:mb-20"
           >
-            <h2 className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient px-4 leading-tight">
               WHY GLOBAL LEADERS CHOOSE US
             </h2>
-            <p className="text-3xl text-gray-300 max-w-4xl mx-auto font-medium">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto font-medium px-4">
               Enterprise-grade solutions with proven results across 30+ countries
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
             {[
               { icon: Shield, title: "Enterprise Security", desc: "Bank-level encryption, SOC 2, GDPR, HIPAA compliance. Military-grade protection for your data and users.", gradient: "from-blue-600 to-cyan-600" },
               { icon: Zap, title: "Lightning Performance", desc: "Sub-second load times, 99.9% uptime SLA. We obsess over every millisecond of performance.", gradient: "from-yellow-600 to-orange-600" },
@@ -486,23 +487,23 @@ const UltimateHome = () => {
       </section>
 
       {/* SECTION 5: TESTIMONIALS - Infinite Scroll */}
-      <section className="py-40 px-4 bg-black">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 bg-black">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-24"
+            className="text-center mb-12 md:mb-16 lg:mb-20"
           >
-            <h2 className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient px-4 leading-tight">
               LOVED BY CLIENTS WORLDWIDE
             </h2>
-            <p className="text-3xl text-gray-300">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 px-4">
               See what global leaders say about Ahmed Raza and DevDazzle
             </p>
           </motion.div>
 
-          <div className="mb-20">
+          <div className="mb-12 md:mb-16 lg:mb-20">
             <InfiniteMovingCards
               items={TESTIMONIALS.map(t => ({ quote: t.quote, name: t.name, title: `${t.role} - ${t.company}` }))}
               direction="right"
@@ -514,23 +515,23 @@ const UltimateHome = () => {
       </section>
 
       {/* SECTION 6: PORTFOLIO - Extreme 3D Project Cards */}
-      <section className="py-40 px-4 bg-gradient-to-b from-black via-pink-950/20 to-black">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 bg-gradient-to-b from-black via-pink-950/20 to-black">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="text-center mb-24"
+            className="text-center mb-12 md:mb-16 lg:mb-20"
           >
-            <h2 className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient px-4 leading-tight">
               FEATURED PROJECTS
             </h2>
-            <p className="text-3xl text-gray-300 max-w-4xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto px-4">
               Real projects, real results. See how we've transformed businesses globally.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
             {[
               { title: "AI Analytics Platform", cat: "AI & ML", result: "300% Productivity", client: "TechFlow Inc", gradient: "from-purple-600 to-pink-600" },
               { title: "Fashion E-Commerce", cat: "E-Commerce", result: "250% Sales Growth", client: "StyleHub", gradient: "from-pink-600 to-red-600" },
@@ -565,7 +566,7 @@ const UltimateHome = () => {
                         className={cn("w-full h-full bg-gradient-to-br", project.gradient, "flex flex-col items-center justify-center text-white shadow-2xl relative overflow-hidden")}
                       >
                         <div className="absolute inset-0 bg-grid-white/[0.05]"></div>
-                        <div className="relative z-10 text-8xl font-bold">{project.title.charAt(0)}</div>
+                        <div className="relative z-10 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold">{project.title.charAt(0)}</div>
                       </motion.div>
                     </CardItem>
                     
@@ -599,15 +600,15 @@ const UltimateHome = () => {
       </section>
 
       {/* SECTION 7: TECHNOLOGY - Rotating 3D Cards */}
-      <section className="py-40 px-4 bg-black relative">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 bg-black relative">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mb-24"
+            className="text-center mb-12 md:mb-16 lg:mb-20"
           >
-            <h2 className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient px-4 leading-tight">
               TECHNOLOGY MASTERY
             </h2>
           </motion.div>
@@ -642,7 +643,7 @@ const UltimateHome = () => {
       </section>
 
       {/* SECTION 8: FOUNDER - Ahmed Raza with 3D Card */}
-      <section className="py-40 px-4 bg-gradient-to-b from-black via-purple-950/40 to-black relative overflow-visible">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 bg-gradient-to-b from-black via-purple-950/40 to-black relative overflow-visible">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -665,7 +666,7 @@ const UltimateHome = () => {
                         repeat: Infinity,
                         ease: "easeInOut"
                       }}
-                      className="w-full max-w-[300px] aspect-square rounded-3xl bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-7xl md:text-9xl font-bold shadow-2xl shadow-purple-500/50 relative overflow-hidden"
+                      className="w-full max-w-[250px] sm:max-w-[300px] aspect-square rounded-3xl bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold shadow-2xl shadow-purple-500/50 relative overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-purple-500/20 to-pink-400/20 animate-pulse"></div>
                       <div className="relative z-10">AR</div>
@@ -674,7 +675,7 @@ const UltimateHome = () => {
 
                   {/* Text Content */}
                   <div className="w-full space-y-6">
-                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent leading-tight">
                       AHMED RAZA
                     </h3>
                     <p className="text-2xl md:text-3xl text-purple-400 font-bold">Founder & CEO</p>
@@ -702,7 +703,7 @@ const UltimateHome = () => {
       </section>
 
       {/* SECTION 9: MEGA CTA */}
-      <section className="py-40 px-4 bg-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 bg-black relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-r from-cyan-500/30 via-purple-500/30 to-pink-500/30 rounded-full blur-[200px] animate-pulse"></div>
         </div>
@@ -714,7 +715,7 @@ const UltimateHome = () => {
             viewport={{ once: true }}
             transition={{ duration: 1 }}
           >
-            <h2 className="text-6xl md:text-8xl font-bold mb-12 text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 md:mb-12 text-white leading-tight px-4">
               READY TO BUILD
               <br />
               <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">

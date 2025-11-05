@@ -1,9 +1,10 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './styles/globals.css';
+import './App.css';
+import UltimateHome from './pages/UltimateHome';
 
 // Eager load home
-import UltimateHome from './pages/UltimateHome';
 
 // Lazy load pages
 const WebDevelopment = lazy(() => import('./pages/services/WebDevelopment'));

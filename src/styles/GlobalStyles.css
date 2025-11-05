@@ -399,27 +399,77 @@ a {
 }
 
 /* Responsive Design */
+* {
+  max-width: 100%;
+}
+
+/* Prevent horizontal overflow on all elements */
+html, body {
+  width: 100%;
+  overflow-x: hidden !important;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
   .section {
-    padding: 4rem 1rem;
+    padding: 3rem 1rem;
   }
   
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem !important;
+    line-height: 1.2;
   }
   
   h2 {
-    font-size: 2rem;
+    font-size: 1.75rem !important;
   }
   
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
+  }
+  
+  p {
+    font-size: 1rem;
   }
   
   .grid-2,
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+  
+  /* Ensure containers don't overflow */
+  .container {
+    padding: 0 1rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  h3 {
+    font-size: 1.25rem !important;
   }
 }
 

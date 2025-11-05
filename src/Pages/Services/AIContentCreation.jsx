@@ -7,8 +7,8 @@ import NewFooter from '../../components/layout/NewFooter';
 import { Button } from '../../components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../../components/ui/card';
 import { HeroHighlight, Highlight } from '../../components/ui/hero-highlight';
-import { BentoGrid, BentoGridItem } from '../../components/ui/bento-grid';
 import { BackgroundGradient } from '../../components/ui/background-gradient';
+import { ThreeDFeaturesGrid } from '../../components/ui/3d-feature-card';
 import { Link } from 'react-router-dom';
 
 const AIContentCreation = () => {
@@ -150,9 +150,9 @@ const AIContentCreation = () => {
       <MegaNavbar />
       
       {/* Spacer for fixed navbar */}
-      <div className="h-24 md:h-32"></div>
+      <div className="h-20 sm:h-24 md:h-28"></div>
 
-      <HeroHighlight containerClassName="pb-20">
+      <HeroHighlight containerClassName="pb-12 md:pb-16 lg:pb-20 pt-8 md:pt-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -167,13 +167,13 @@ const AIContentCreation = () => {
             <span className="text-sm font-medium">Powered by GPT-4, DALL-E & Midjourney</span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-6 leading-tight">
             AI-Powered{' '}
             <Highlight className="text-white">
               Content Creation
             </Highlight>
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto px-4">
             Generate blog posts, marketing copy, social media content, and visuals 10x faster. 
             SEO-optimized, brand-consistent, and ready to publish.
           </p>
@@ -214,35 +214,14 @@ const AIContentCreation = () => {
       </HeroHighlight>
 
       {/* Features */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-              What We Create
-            </h2>
-          </motion.div>
-
-          <BentoGrid>
-            {features.map((feature, index) => (
-              <BentoGridItem
-                key={index}
-                title={feature.title}
-                description={feature.description}
-                icon={feature.icon}
-                className={index === 0 || index === 3 ? "md:col-span-2" : ""}
-              />
-            ))}
-          </BentoGrid>
-        </div>
-      </section>
+      <ThreeDFeaturesGrid 
+        features={features}
+        title="What We Create"
+        subtitle="AI-powered content creation for every platform and format you need"
+      />
 
       {/* Content Types */}
-      <section className="py-20 px-4 bg-accent/20">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-accent/20">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -273,10 +252,10 @@ const AIContentCreation = () => {
                     <CardContent>
                       <div className="space-y-4">
                         <div>
-                          <div className="text-sm font-semibold mb-2">Examples:</div>
+                          <div className="text-sm font-semibold mb-2 text-white">Examples:</div>
                           <div className="flex flex-wrap gap-2">
                             {type.examples.map((example, idx) => (
-                              <span key={idx} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-md">
+                              <span key={idx} className="text-xs bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white px-3 py-1.5 rounded-lg font-semibold shadow-lg shadow-purple-500/30 hover:shadow-cyan-500/50 hover:scale-105 transition-all">
                                 {example}
                               </span>
                             ))}
@@ -296,7 +275,7 @@ const AIContentCreation = () => {
       </section>
 
       {/* Pricing Packages */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-16 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -357,7 +336,7 @@ const AIContentCreation = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 bg-accent/20">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-accent/20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

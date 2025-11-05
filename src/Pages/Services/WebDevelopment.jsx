@@ -7,7 +7,7 @@ import NewFooter from '../../components/layout/NewFooter';
 import { Button } from '../../components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../../components/ui/card';
 import { HeroHighlight, Highlight } from '../../components/ui/hero-highlight';
-import { BentoGrid, BentoGridItem } from '../../components/ui/bento-grid';
+import { ThreeDFeaturesGrid } from '../../components/ui/3d-feature-card';
 import { Link } from 'react-router-dom';
 
 const WebDevelopment = () => {
@@ -155,23 +155,23 @@ const WebDevelopment = () => {
       <MegaNavbar />
       
       {/* Spacer for fixed navbar */}
-      <div className="h-24 md:h-32"></div>
+      <div className="h-20 sm:h-24 md:h-28"></div>
 
       {/* Hero Section */}
-      <HeroHighlight containerClassName="pb-20">
+      <HeroHighlight containerClassName="pb-12 md:pb-16 lg:pb-20 pt-8 md:pt-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto px-4"
         >
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-6 leading-tight">
             Build Your Dream{' '}
             <Highlight className="text-white">
               Website
             </Highlight>
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto px-4">
             Custom web development solutions that combine stunning design with powerful functionality. 
             From startups to enterprises, we build websites that drive results.
           </p>
@@ -214,39 +214,15 @@ const WebDevelopment = () => {
         </motion.div>
       </HeroHighlight>
 
-      {/* Features Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-              Why Choose Our Web Development Services?
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We combine cutting-edge technology with creative excellence to deliver exceptional web experiences
-            </p>
-          </motion.div>
-
-          <BentoGrid>
-            {features.map((feature, index) => (
-              <BentoGridItem
-                key={index}
-                title={feature.title}
-                description={feature.description}
-                icon={feature.icon}
-                className={index === 0 || index === 3 ? "md:col-span-2" : ""}
-              />
-            ))}
-          </BentoGrid>
-        </div>
-      </section>
+      {/* Features Section - Enhanced with 3D Cards */}
+      <ThreeDFeaturesGrid 
+        features={features}
+        title="Why Choose Our Web Development Services?"
+        subtitle="We combine cutting-edge technology with creative excellence to deliver exceptional web experiences"
+      />
 
       {/* Technologies Section */}
-      <section className="py-20 px-4 bg-accent/20">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-accent/20">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -282,7 +258,7 @@ const WebDevelopment = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-16 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -309,7 +285,7 @@ const WebDevelopment = () => {
               >
                 <Card className="h-full hover:border-primary transition-all">
                   <CardHeader>
-                    <div className="text-5xl font-display font-bold text-primary/20 mb-4">
+                    <div className="text-5xl font-display font-bold bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600 bg-clip-text text-transparent mb-4">
                       {item.step}
                     </div>
                     <CardTitle>{item.title}</CardTitle>
@@ -328,7 +304,7 @@ const WebDevelopment = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 px-4 bg-accent/20">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-accent/20">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -394,7 +370,7 @@ const WebDevelopment = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-16 md:py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

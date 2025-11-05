@@ -7,8 +7,8 @@ import NewFooter from '../../components/layout/NewFooter';
 import { Button } from '../../components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../../components/ui/card';
 import { HeroHighlight, Highlight } from '../../components/ui/hero-highlight';
-import { BentoGrid, BentoGridItem } from '../../components/ui/bento-grid';
 import { BackgroundGradient } from '../../components/ui/background-gradient';
+import { ThreeDFeaturesGrid } from '../../components/ui/3d-feature-card';
 import { Link } from 'react-router-dom';
 
 const AIChatbots = () => {
@@ -264,10 +264,10 @@ const AIChatbots = () => {
       <MegaNavbar />
       
       {/* Spacer for fixed navbar */}
-      <div className="h-24 md:h-32"></div>
+      <div className="h-20 sm:h-24 md:h-28"></div>
 
       {/* Hero Section */}
-      <HeroHighlight containerClassName="pb-20">
+      <HeroHighlight containerClassName="pb-12 md:pb-16 lg:pb-20 pt-8 md:pt-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -284,13 +284,13 @@ const AIChatbots = () => {
             <span className="text-sm font-medium">Powered by GPT-4 & Advanced NLP</span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-6 leading-tight">
             Custom AI{' '}
             <Highlight className="text-white">
               Chatbots & Virtual Assistants
             </Highlight>
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto px-4">
             Build intelligent conversational AI that understands your customers, answers questions 24/7, 
             and delivers exceptional experiences across every touchpoint. Reduce support costs by 70% while improving satisfaction.
           </p>
@@ -333,38 +333,14 @@ const AIChatbots = () => {
       </HeroHighlight>
 
       {/* Features Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-              Why Choose Our AI Chatbots?
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Advanced features powered by cutting-edge AI technology
-            </p>
-          </motion.div>
-
-          <BentoGrid>
-            {features.map((feature, index) => (
-              <BentoGridItem
-                key={index}
-                title={feature.title}
-                description={feature.description}
-                icon={feature.icon}
-                className={index === 0 || index === 3 ? "md:col-span-2" : ""}
-              />
-            ))}
-          </BentoGrid>
-        </div>
-      </section>
+      <ThreeDFeaturesGrid 
+        features={features}
+        title="Why Choose Our AI Chatbots?"
+        subtitle="Advanced features powered by cutting-edge AI technology that transforms customer interactions"
+      />
 
       {/* Use Cases Section */}
-      <section className="py-20 px-4 bg-accent/20">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-accent/20">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -398,20 +374,20 @@ const AIChatbots = () => {
                     <CardContent>
                       <div className="space-y-4">
                         <div>
-                          <div className="text-sm font-semibold mb-2">Key Features:</div>
+                          <div className="text-sm font-semibold mb-2 text-white">Key Features:</div>
                           <div className="flex flex-wrap gap-2">
                             {useCase.features.map((feature, idx) => (
-                              <span key={idx} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-md">
+                              <span key={idx} className="text-xs bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white px-3 py-1.5 rounded-lg font-semibold shadow-lg shadow-purple-500/30 hover:shadow-cyan-500/50 hover:scale-105 transition-all">
                                 {feature}
                               </span>
                             ))}
                           </div>
                         </div>
                         <div className="pt-4 border-t border-border">
-                          <div className="text-sm font-semibold mb-2">Results:</div>
+                          <div className="text-sm font-semibold mb-2 text-white">Results:</div>
                           <div className="grid grid-cols-2 gap-2">
                             {useCase.metrics.map((metric, idx) => (
-                              <span key={idx} className="text-xs text-muted-foreground">✓ {metric}</span>
+                              <span key={idx} className="text-xs text-cyan-400 font-semibold">✓ {metric}</span>
                             ))}
                           </div>
                         </div>
@@ -426,7 +402,7 @@ const AIChatbots = () => {
       </section>
 
       {/* Platforms Section */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-16 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -461,7 +437,7 @@ const AIChatbots = () => {
       </section>
 
       {/* Capabilities Section */}
-      <section className="py-20 px-4 bg-accent/20">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-accent/20">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -496,7 +472,7 @@ const AIChatbots = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-16 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -523,7 +499,7 @@ const AIChatbots = () => {
               >
                 <Card className="h-full hover:border-primary transition-all">
                   <CardHeader>
-                    <div className="text-5xl font-display font-bold text-primary/20 mb-4">
+                    <div className="text-5xl font-display font-bold bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600 bg-clip-text text-transparent mb-4">
                       {item.step}
                     </div>
                     <CardTitle>{item.title}</CardTitle>
@@ -551,7 +527,7 @@ const AIChatbots = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 px-4 bg-accent/20">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-accent/20">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -621,7 +597,7 @@ const AIChatbots = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-16 md:py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -658,7 +634,7 @@ const AIChatbots = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-accent/20">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-accent/20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

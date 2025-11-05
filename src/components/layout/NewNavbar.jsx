@@ -100,7 +100,7 @@ const NewNavbar = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-slate-900 border border-white/10 rounded-2xl shadow-2xl p-6"
+                    className="absolute top-full -left-20 mt-2 w-[650px] bg-slate-900 border border-white/10 rounded-2xl shadow-2xl p-6"
                   >
                     <div className="grid grid-cols-2 gap-6">
                       {Object.entries(groupedServices).map(([category, items]) => (

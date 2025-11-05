@@ -7,7 +7,7 @@ import NewFooter from '../../components/layout/NewFooter';
 import { Button } from '../../components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../../components/ui/card';
 import { HeroHighlight, Highlight } from '../../components/ui/hero-highlight';
-import { BentoGrid, BentoGridItem } from '../../components/ui/bento-grid';
+import { ThreeDFeaturesGrid } from '../../components/ui/3d-feature-card';
 import { Link } from 'react-router-dom';
 
 const MobileApps = () => {
@@ -102,21 +102,21 @@ const MobileApps = () => {
       <MegaNavbar />
       
       {/* Spacer for fixed navbar */}
-      <div className="h-24 md:h-32"></div>
+      <div className="h-20 sm:h-24 md:h-28"></div>
 
-      <HeroHighlight containerClassName="pb-20">
+      <HeroHighlight containerClassName="pb-12 md:pb-16 lg:pb-20 pt-8 md:pt-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center max-w-5xl mx-auto px-4"
         >
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-6 leading-tight">
             Build Your Dream{' '}
             <Highlight className="text-white">
               Mobile App
             </Highlight>
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto px-4">
             Native iOS and Android apps that users love. From concept to App Store, we build mobile experiences that drive growth.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
@@ -153,24 +153,14 @@ const MobileApps = () => {
       </HeroHighlight>
 
       {/* Features */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <BentoGrid>
-            {features.map((feature, index) => (
-              <BentoGridItem
-                key={index}
-                title={feature.title}
-                description={feature.description}
-                icon={feature.icon}
-                className={index === 0 || index === 3 ? "md:col-span-2" : ""}
-              />
-            ))}
-          </BentoGrid>
-        </div>
-      </section>
+      <ThreeDFeaturesGrid 
+        features={features}
+        title="Why Choose Our Mobile App Development?"
+        subtitle="Build powerful native and cross-platform mobile apps with cutting-edge technology"
+      />
 
       {/* Pricing */}
-      <section className="py-20 px-4 bg-accent/20">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-accent/20">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
             {pricing.map((plan, index) => (

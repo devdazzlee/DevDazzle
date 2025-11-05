@@ -159,10 +159,10 @@ const Careers = () => {
       <MegaNavbar />
       
       {/* Spacer for fixed navbar */}
-      <div className="h-24 md:h-32"></div>
+      <div className="h-20 sm:h-24 md:h-28"></div>
 
       {/* SECTION 1: DRAMATIC HERO */}
-      <LampContainer className="pb-20">
+      <LampContainer className="pb-10 md:pb-20 pt-8 sm:pt-12 md:pt-16">
         <motion.div
           style={{ opacity, scale }}
           className="flex flex-col items-center justify-center relative z-50"
@@ -173,9 +173,9 @@ const Careers = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="mb-8"
           >
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border-2 border-cyan-400/50 rounded-full px-8 py-4 shadow-2xl shadow-cyan-500/50">
-              <Sparkles className="h-6 w-6 text-cyan-400 animate-pulse" />
-              <span className="text-lg font-bold text-white">
+            <div className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-cyan-400/50 md:border-2 rounded-full px-4 md:px-8 py-2 md:py-4 shadow-2xl shadow-cyan-500/50 backdrop-blur-sm">
+              <Sparkles className="h-4 w-4 md:h-6 md:w-6 text-cyan-400 animate-pulse flex-shrink-0" />
+              <span className="text-xs sm:text-sm md:text-lg font-bold text-white text-center">
                 50+ Team Members • 30+ Countries • Remote-First
               </span>
             </div>
@@ -185,7 +185,7 @@ const Careers = () => {
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
-            className="bg-gradient-to-br from-white to-gray-400 py-6 bg-clip-text text-center text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tight text-transparent leading-none"
+            className="bg-gradient-to-br from-white to-gray-400 py-4 md:py-6 bg-clip-text text-center text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-transparent leading-tight px-4"
           >
             JOIN OUR TEAM
           </motion.h1>
@@ -202,7 +202,7 @@ const Careers = () => {
       </LampContainer>
 
       {/* SECTION 2: WHY JOIN US */}
-      <section className="py-32 px-4 bg-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-black relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent)]"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
@@ -211,7 +211,7 @@ const Careers = () => {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="text-5xl md:text-7xl font-display font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent px-4 leading-tight">
               Why Join DevDazzle?
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
@@ -260,7 +260,7 @@ const Careers = () => {
       </section>
 
       {/* SECTION 3: BENEFITS */}
-      <section className="py-32 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -310,7 +310,7 @@ const Careers = () => {
       </section>
 
       {/* SECTION 4: CULTURE */}
-      <section className="py-32 px-4 bg-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-black relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -357,8 +357,9 @@ const Careers = () => {
       </section>
 
       {/* SECTION 5: HIRING PROCESS */}
-      <section className="py-32 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black relative overflow-hidden">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/[0.02]"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -373,54 +374,77 @@ const Careers = () => {
             </p>
           </motion.div>
 
-          <div className="relative">
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 md:transform md:-translate-x-1/2 bg-gradient-to-b from-cyan-500 via-purple-500 to-pink-500 hidden md:block"></div>
-            <div className="space-y-12">
-              {process.map((item, index) => (
-                <motion.div
-                  key={item.step}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                  className={cn(
-                    "relative flex items-center gap-8",
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  )}
-                >
-                  <div className={cn(
-                    "flex-1",
-                    index % 2 === 0 ? "md:text-right md:pr-8" : "md:text-left md:pl-8"
-                  )}>
-                    <CardContainer className="inter-var">
-                      <CardBody className="bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 relative w-full p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all">
-                        <CardItem translateZ="50">
-                          <div className="flex items-center gap-6 mb-4">
-                            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                              {item.step}
-                            </div>
-                            <h3 className="text-3xl font-display font-bold bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                              {item.title}
-                            </h3>
-                          </div>
-                          <p className="text-gray-300 text-lg leading-relaxed">{item.description}</p>
-                        </CardItem>
-                      </CardBody>
-                    </CardContainer>
-                  </div>
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center border-4 border-black shadow-xl z-10">
-                    <CheckCircle className="h-8 w-8 text-white" />
-                  </div>
-                  <div className="flex-1 hidden md:block"></div>
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {process.map((item, index) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 100, rotateY: -45 }}
+                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.15,
+                  duration: 0.8,
+                  type: "spring",
+                  stiffness: 100
+                }}
+              >
+                <CardContainer className="inter-var">
+                  <CardBody className="bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900 relative w-full h-full p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all group">
+                    <CardItem
+                      translateZ="150"
+                      rotateX={5}
+                      className="w-full mb-6"
+                    >
+                      <div className="relative">
+                        <motion.div
+                          animate={{
+                            scale: [1, 1.1, 1],
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                          className={cn(
+                            "w-20 h-20 rounded-2xl bg-gradient-to-br flex items-center justify-center shadow-2xl mb-4",
+                            index % 3 === 0 ? "from-cyan-500 to-blue-600" :
+                            index % 3 === 1 ? "from-purple-500 to-pink-600" :
+                            "from-pink-500 to-red-600"
+                          )}
+                        >
+                          <span className="text-4xl font-bold text-white">{item.step}</span>
+                        </motion.div>
+                        <div className="absolute -right-2 -top-2 w-6 h-6 rounded-full bg-green-400 flex items-center justify-center animate-pulse">
+                          <CheckCircle className="h-4 w-4 text-white" />
+                        </div>
+                      </div>
+                    </CardItem>
+                    
+                    <CardItem
+                      translateZ="100"
+                      as="h3"
+                      className="text-3xl font-display font-bold mb-4 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+                    >
+                      {item.title}
+                    </CardItem>
+                    
+                    <CardItem
+                      translateZ="80"
+                      as="p"
+                      className="text-gray-300 text-lg leading-relaxed"
+                    >
+                      {item.description}
+                    </CardItem>
+                  </CardBody>
+                </CardContainer>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* SECTION 6: OPEN POSITIONS */}
-      <section className="py-32 px-4 bg-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-black relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -502,7 +526,7 @@ const Careers = () => {
       </section>
 
       {/* SECTION 7: CTA */}
-      <section className="py-32 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
