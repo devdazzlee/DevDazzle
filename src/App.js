@@ -2,27 +2,27 @@ import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './styles/globals.css';
 import './App.css';
-import UltimateHome from './pages/UltimateHome.jsx';
+import UltimateHome from './Pages/UltimateHome.jsx';
 
 // Eager load home
 
 // Lazy load pages
-const WebDevelopment = lazy(() => import('./pages/services/WebDevelopment'));
-const AIBusinessAgents = lazy(() => import('./pages/services/AIBusinessAgents'));
-const AIChatbots = lazy(() => import('./pages/services/AIChatbots'));
-const AIContentCreation = lazy(() => import('./pages/services/AIContentCreation'));
-const MobileApps = lazy(() => import('./pages/services/MobileApps'));
-const UIUXDesign = lazy(() => import('./pages/services/UIUXDesign'));
-const Ecommerce = lazy(() => import('./pages/services/Ecommerce'));
-const DigitalMarketing = lazy(() => import('./pages/services/DigitalMarketing'));
+const WebDevelopment = lazy(() => import('./Pages/Services/WebDevelopment'));
+const AIBusinessAgents = lazy(() => import('./Pages/Services/AIBusinessAgents'));
+const AIChatbots = lazy(() => import('./Pages/Services/AIChatbots'));
+const AIContentCreation = lazy(() => import('./Pages/Services/AIContentCreation'));
+const MobileApps = lazy(() => import('./Pages/Services/MobileApps'));
+const UIUXDesign = lazy(() => import('./Pages/Services/UIUXDesign'));
+const Ecommerce = lazy(() => import('./Pages/Services/Ecommerce'));
+const DigitalMarketing = lazy(() => import('./Pages/Services/DigitalMarketing'));
 
-const About = lazy(() => import('./pages/About'));
-const Contact = lazy(() => import('./pages/Contact'));
-const Portfolio = lazy(() => import('./pages/Portfolio'));
-const Careers = lazy(() => import('./pages/Careers'));
-const PrivacyPolicy = lazy(() => import('./pages/legal/PrivacyPolicy'));
-const TermsOfService = lazy(() => import('./pages/legal/TermsOfService'));
-const CookiePolicy = lazy(() => import('./pages/legal/CookiePolicy'));
+const About = lazy(() => import('./Pages/About'));
+const Contact = lazy(() => import('./Pages/Contact'));
+const Portfolio = lazy(() => import('./Pages/Portfolio'));
+const Careers = lazy(() => import('./Pages/Careers'));
+const PrivacyPolicy = lazy(() => import('./Pages/legal/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./Pages/legal/TermsOfService'));
+const CookiePolicy = lazy(() => import('./Pages/legal/CookiePolicy'));
 
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-screen bg-background">
