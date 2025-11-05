@@ -31,8 +31,8 @@ const UltimateHome = () => {
       {/* SECTION 1: DRAMATIC LAMP HERO - NO COLLISION! */}
       <LampContainer className="pt-0">
         <motion.div
-          style={{ opacity, scale, marginTop: '-1000px' }}
-          className="flex flex-col items-center justify-center relative z-[1]"
+          style={{ opacity, scale }}
+          className="flex flex-col items-center justify-center relative z-[1] -mt-8 sm:-mt-12 md:-mt-16"
         >
           {/* Founder Badge - Fixed Position */}
           <motion.div
