@@ -34,16 +34,16 @@ const Portfolio = () => {
       <MegaNavbar />
       
       {/* Spacer for fixed navbar */}
-      <div className="h-20 sm:h-24 md:h-28"></div>
+      <div className="h-28 sm:h-32 md:h-36"></div>
 
       {/* SECTION 1: DRAMATIC HERO */}
-      <LampContainer className="pb-10 md:pb-20 pt-8 sm:pt-12 md:pt-16">
+      <LampContainer className="pb-10 md:pb-20 pt-0">
         <motion.div
-          style={{ opacity, scale }}
-          className="flex flex-col items-center justify-center relative z-50"
+          style={{ opacity, scale, marginTop: '-1000px' }}
+          className="flex flex-col items-center justify-center relative z-[100]"
         >
           <motion.div
-            initial={{ y: -50, opacity: 0 }}
+            initial={{ y: 0, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
             className="mb-8"

@@ -25,18 +25,18 @@ const UltimateHome = () => {
 
       <MegaNavbar />
       
-      {/* Spacer for fixed navbar */}
-      <div className="h-20 sm:h-24 md:h-28"></div>
+      {/* Spacer for fixed navbar - Increased for proper clearance */}
+      <div className="h-28 sm:h-32 md:h-36"></div>
 
       {/* SECTION 1: DRAMATIC LAMP HERO - NO COLLISION! */}
-      <LampContainer className="pt-8 sm:pt-12 md:pt-16">
+      <LampContainer className="pt-0">
         <motion.div
-          style={{ opacity, scale }}
-          className="flex flex-col items-center justify-center relative z-10"
+          style={{ opacity, scale, marginTop: '-1000px' }}
+          className="flex flex-col items-center justify-center relative z-[1]"
         >
           {/* Founder Badge - Fixed Position */}
           <motion.div
-            initial={{ y: -50, opacity: 0 }}
+            initial={{ y: 0, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
             className="mb-6 md:mb-8"
