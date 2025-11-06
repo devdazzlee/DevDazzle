@@ -1,0 +1,162 @@
+const express = require('express');
+const cors = require('cors');
+const nodemailer = require('nodemailer');
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Email configuration - Gmail SMTP
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'ahmedrazagithub@gmail.com',
+    pass: 'gltr oefj xtel rdjh' // Gmail App Password
+  }
+});
+
+// Verify transporter
+transporter.verify((error, success) => {
+  if (error) {
+    console.log('Email transporter error:', error);
+  } else {
+    console.log('Email server is ready to send messages');
+  }
+});
+
+// Contact form email endpoint
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { name, email, company, phone, subject, message } = req.body;
+
+    // Validation
+    if (!name || !email || !subject || !message) {
+      return res.status(400).json({ 
+        success: false, 
+        error: 'Missing required fields: name, email, subject, and message are required' 
+      });
+    }
+
+    // Email content
+    const mailOptions = {
+      from: 'ahmedrazagithub@gmail.com',
+      to: 'ahmedrazagithub@gmail.com',
+      replyTo: email,
+      subject: `Contact Form: ${subject}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
+          <h2 style="color: #333; border-bottom: 2px solid #4f46e5; padding-bottom: 10px;">
+            New Contact Form Submission
+          </h2>
+          
+          <div style="background-color: white; padding: 20px; border-radius: 8px; margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <p style="margin: 10px 0;"><strong style="color: #4f46e5;">Name:</strong> ${name}</p>
+            <p style="margin: 10px 0;"><strong style="color: #4f46e5;">Email:</strong> <a href="mailto:${email}">${email}</a></p>
+            ${company ? `<p style="margin: 10px 0;"><strong style="color: #4f46e5;">Company:</strong> ${company}</p>` : ''}
+            ${phone ? `<p style="margin: 10px 0;"><strong style="color: #4f46e5;">Phone:</strong> <a href="tel:${phone}">${phone}</a></p>` : ''}
+            <p style="margin: 10px 0;"><strong style="color: #4f46e5;">Subject:</strong> ${subject}</p>
+            
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+              <p style="margin: 10px 0;"><strong style="color: #4f46e5;">Message:</strong></p>
+              <p style="margin: 10px 0; color: #666; line-height: 1.6; white-space: pre-wrap;">${message}</p>
+            </div>
+          </div>
+          
+          <div style="margin-top: 20px; padding: 15px; background-color: #eef2ff; border-radius: 8px; border-left: 4px solid #4f46e5;">
+            <p style="margin: 0; color: #1e40af; font-size: 14px;">
+              <strong>📧 Reply to:</strong> <a href="mailto:${email}" style="color: #4f46e5;">${email}</a>
+              ${phone ? ` | <strong>📞 Call:</strong> <a href="tel:${phone}" style="color: #4f46e5;">${phone}</a>` : ''}
+            </p>
+          </div>
+        </div>
+      `,
+      text: `
+New Contact Form Submission
+
+Name: ${name}
+Email: ${email}
+${company ? `Company: ${company}` : ''}
+${phone ? `Phone: ${phone}` : ''}
+Subject: ${subject}
+
+Message:
+${message}
+
+---
+Reply to: ${email}
+      `
+    };
+
+    // Send email
+    await transporter.sendMail(mailOptions);
+
+    // Send confirmation email to user
+    const confirmationMail = {
+      from: 'ahmedrazagithub@gmail.com',
+      to: email,
+      subject: 'Thank you for contacting DevDazzle',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
+          <h2 style="color: #333; border-bottom: 2px solid #4f46e5; padding-bottom: 10px;">
+            Thank You for Contacting DevDazzle!
+          </h2>
+          
+          <div style="background-color: white; padding: 20px; border-radius: 8px; margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <p style="color: #666; line-height: 1.6;">
+              Hi ${name},
+            </p>
+            
+            <p style="color: #666; line-height: 1.6;">
+              Thank you for reaching out to DevDazzle! We've received your message and will get back to you within 24 hours.
+            </p>
+            
+            <div style="margin: 20px 0; padding: 15px; background-color: #eef2ff; border-radius: 8px; border-left: 4px solid #4f46e5;">
+              <p style="margin: 0; color: #1e40af; font-size: 14px;">
+                <strong>Your Message:</strong><br/>
+                <span style="color: #666;">${subject}</span>
+              </p>
+            </div>
+            
+            <p style="color: #666; line-height: 1.6;">
+              In the meantime, feel free to explore our portfolio and services. We're excited to help transform your digital dreams into reality!
+            </p>
+            
+            <p style="color: #666; line-height: 1.6;">
+              Best regards,<br/>
+              <strong>DevDazzle Team</strong><br/>
+              <a href="mailto:ahmedrazagithub@gmail.com" style="color: #4f46e5;">ahmedrazagithub@gmail.com</a><br/>
+              <a href="tel:03278227842" style="color: #4f46e5;">03278227842</a>
+            </p>
+          </div>
+        </div>
+      `
+    };
+
+    await transporter.sendMail(confirmationMail);
+
+    res.json({ 
+      success: true, 
+      message: 'Email sent successfully!' 
+    });
+
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ 
+      success: false, 
+      error: 'Failed to send email. Please try again later.' 
+    });
+  }
+});
+
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'OK', message: 'Server is running' });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+

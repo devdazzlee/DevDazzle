@@ -18,8 +18,8 @@ export const COMPANY_INFO = {
   established: "2008",
   headquarters: "San Francisco, CA",
   globalOffices: ["New York", "London", "Dubai", "Singapore", "Mumbai"],
-  email: "contact@devdazzle.com",
-  phone: "+1 (555) 123-4567",
+  email: "ahmedrazagithub@gmail.com",
+  phone: "03278227842",
   address: "123 Innovation Drive, San Francisco, CA 94105"
 };
 

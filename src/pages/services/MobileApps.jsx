@@ -101,10 +101,8 @@ const MobileApps = () => {
 
       <MegaNavbar />
       
-      {/* Spacer for fixed navbar */}
-      <div className="h-20 sm:h-24 md:h-28"></div>
-
-      <HeroHighlight containerClassName="pb-12 md:pb-16 lg:pb-20 pt-8 md:pt-12">
+      {/* Hero Section */}
+      <HeroHighlight containerClassName="pb-12 md:pb-16 lg:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -62,10 +62,8 @@ const UIUXDesign = () => {
 
       <MegaNavbar />
       
-      {/* Spacer for fixed navbar */}
-      <div className="h-20 sm:h-24 md:h-28"></div>
-
-      <HeroHighlight containerClassName="pb-12 md:pb-16 lg:pb-20 pt-8 md:pt-12">
+      {/* Hero Section */}
+      <HeroHighlight containerClassName="pb-12 md:pb-16 lg:pb-20">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-5xl mx-auto px-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-6 leading-tight">
             Design{' '}<Highlight className="text-white">Experiences</Highlight>{' '}Users Love

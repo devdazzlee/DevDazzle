@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Sparkles } from 'lucide-react';
@@ -8,6 +8,9 @@ import { Button } from '../ui/button';
 const MegaNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [dropdownStyle, setDropdownStyle] = useState({});
+  const servicesButtonRef = useRef(null);
+  const dropdownRef = useRef(null);
   const location = useLocation();
 
   const allServices = [
@@ -51,6 +54,34 @@ const MegaNavbar = () => {
     groupedServices[service.cat].push(service);
   });
 
+  // Calculate dropdown position to prevent overflow
+  useEffect(() => {
+    if (servicesOpen && servicesButtonRef.current && dropdownRef.current) {
+      const buttonRect = servicesButtonRef.current.getBoundingClientRect();
+      const dropdown = dropdownRef.current;
+      const viewportWidth = window.innerWidth;
+      const dropdownMaxWidth = 850;
+      const dropdownWidth = Math.min(dropdownMaxWidth, viewportWidth - 40);
+      
+      // Calculate left position (align to button left edge)
+      let leftPosition = 0;
+      
+      // Check if dropdown would overflow on the right
+      const dropdownRightEdge = buttonRect.left + dropdownWidth;
+      if (dropdownRightEdge > viewportWidth - 20) {
+        // Adjust to prevent overflow - position from right edge
+        leftPosition = viewportWidth - buttonRect.left - dropdownWidth - 20;
+      }
+      
+      setDropdownStyle({
+        width: `${dropdownWidth}px`,
+        maxWidth: `${dropdownWidth}px`,
+        left: `${leftPosition}px`,
+        transform: 'translateX(0)'
+      });
+    }
+  }, [servicesOpen]);
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -88,6 +119,7 @@ const MegaNavbar = () => {
 
             {/* MEGA Services Dropdown */}
             <div
+              ref={servicesButtonRef}
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
@@ -105,11 +137,13 @@ const MegaNavbar = () => {
               <AnimatePresence>
                 {servicesOpen && (
                   <motion.div
+                    ref={dropdownRef}
                     initial={{ opacity: 0, y: 20, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 20, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[90vw] max-w-[900px] bg-black/95 backdrop-blur-2xl border border-cyan-500/30 rounded-2xl shadow-2xl shadow-purple-500/30 p-4 md:p-8 max-h-[80vh] overflow-y-auto"
+                    className="absolute top-full left-0 mt-4 bg-black/95 backdrop-blur-2xl border border-cyan-500/30 rounded-2xl shadow-2xl shadow-purple-500/30 p-4 md:p-8 max-h-[80vh] overflow-y-auto z-50"
+                    style={dropdownStyle}
                   >
                     <div className="grid grid-cols-2 gap-8">
                       {Object.entries(groupedServices).map(([category, items]) => (

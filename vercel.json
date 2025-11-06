@@ -1,13 +1,23 @@
 {
+  "version": 2,
+  "buildCommand": "CI=false npm run build",
+  "outputDirectory": "build",
+  "framework": "create-react-app",
   "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
-  "buildCommand": "CI=false npm run build",
-  "outputDirectory": "build",
-  "framework": "create-react-app",
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "env": {
     "DISABLE_ESLINT_PLUGIN": "true"
   }

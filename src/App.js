@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import './styles/globals.css';
 import './App.css';
 import UltimateHome from './pages/UltimateHome';
+import ScrollToTop from './components/ScrollToTop';
 
 // Eager load home
 
@@ -38,6 +39,7 @@ const PageLoader = () => (
 function App() {
   return (
     <Suspense fallback={<PageLoader />}>
+      <ScrollToTop />
       <Routes>
         {/* Home */}
         <Route path="/" element={<UltimateHome />} />
