@@ -23,7 +23,8 @@
         }
       ],
       "destination": "https://devdazzlee.vercel.app/:path*",
-      "permanent": true
+      "permanent": true,
+      "statusCode": 301
     }
   ],
   "headers": [
