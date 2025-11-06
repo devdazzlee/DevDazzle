@@ -141,84 +141,208 @@ const UltimateHome = () => {
         </motion.div>
       </LampContainer>
 
-      {/* SECTION 2: EXTREME 3D STATS CARDS */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-black relative overflow-hidden">
-        {/* Animated Background Orbs */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-[150px] animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/20 rounded-full blur-[150px] animate-pulse" style={{animationDelay: '1s'}}></div>
+      {/* SECTION 2: EXTREME 3D STATS CARDS - ENHANCED FOR MOBILE */}
+      <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 bg-black relative overflow-hidden">
+        {/* Animated Background Orbs - Enhanced */}
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ 
+            duration: 6, 
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-0 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-cyan-500/20 rounded-full blur-[120px] sm:blur-[150px]"
+        ></motion.div>
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.3, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ 
+            duration: 8, 
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+          className="absolute bottom-0 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-pink-500/20 rounded-full blur-[120px] sm:blur-[150px]"
+        ></motion.div>
         
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12 md:mb-16 lg:mb-20"
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient px-4 leading-tight">
+            <motion.h2 
+              animate={{ 
+                backgroundPosition: ["0%", "100%", "0%"]
+              }}
+              transition={{ 
+                duration: 5, 
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] px-4 leading-tight"
+            >
               TRUSTED WORLDWIDE
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 font-medium px-4">
+            </motion.h2>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-medium px-4">
               Global leaders choose DevDazzle for digital excellence
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {[
-              { icon: Code, value: "500+", label: "Projects Delivered", gradient: "from-cyan-400 to-blue-600", glow: "shadow-cyan-500/50" },
-              { icon: Users, value: "250+", label: "Happy Clients", gradient: "from-purple-400 to-purple-600", glow: "shadow-purple-500/50" },
-              { icon: Award, value: "15+", label: "Years Excellence", gradient: "from-pink-400 to-red-600", glow: "shadow-pink-500/50" },
-              { icon: Star, value: "98%", label: "Satisfaction", gradient: "from-yellow-400 to-orange-600", glow: "shadow-yellow-500/50" }
+              { icon: Code, value: "500+", label: "Projects Delivered", gradient: "from-cyan-400 to-blue-600", glow: "shadow-cyan-500/50", borderGradient: "from-cyan-500 to-blue-500" },
+              { icon: Users, value: "250+", label: "Happy Clients", gradient: "from-purple-400 to-purple-600", glow: "shadow-purple-500/50", borderGradient: "from-purple-500 to-pink-500" },
+              { icon: Award, value: "15+", label: "Years Excellence", gradient: "from-pink-400 to-red-600", glow: "shadow-pink-500/50", borderGradient: "from-pink-500 to-red-500" },
+              { icon: Star, value: "98%", label: "Satisfaction", gradient: "from-yellow-400 to-orange-600", glow: "shadow-yellow-500/50", borderGradient: "from-yellow-500 to-orange-500" }
             ].map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 100, rotateX: -90 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{
-                  delay: index * 0.2,
-                  duration: 0.8,
+                  delay: index * 0.15,
+                  duration: 0.6,
                   type: "spring",
                   stiffness: 100
                 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="w-full"
               >
-                <CardContainer>
-                  <CardBody className={cn("bg-gradient-to-br from-slate-950 to-slate-900 relative group/card hover:shadow-2xl", stat.glow, "border-2 border-white/20 w-full h-auto rounded-3xl p-8")}>
+                <CardContainer className="w-full">
+                  <CardBody className={cn(
+                    "relative group/card w-full h-auto rounded-2xl sm:rounded-3xl p-6 sm:p-8",
+                    "bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950",
+                    "border-2 border-transparent",
+                    "hover:shadow-2xl transition-all duration-300",
+                    stat.glow
+                  )}>
+                    {/* Animated Border Gradient */}
+                    <motion.div
+                      className={cn(
+                        "absolute inset-0 rounded-2xl sm:rounded-3xl -z-10",
+                        "bg-gradient-to-r", stat.borderGradient,
+                        "opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"
+                      )}
+                      animate={{
+                        opacity: [0, 0.3, 0],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: index * 0.5
+                      }}
+                    ></motion.div>
+
+                    {/* Floating Icon Container */}
                     <CardItem
                       translateZ="150"
                       rotateX={5}
-                      className="w-full mb-8"
+                      className="w-full mb-4 sm:mb-6 md:mb-8"
                     >
                       <motion.div
                         animate={{
-                          rotate: [0, 10, -10, 0],
-                          scale: [1, 1.1, 1]
+                          y: [0, -15, 0],
+                          rotate: [0, 5, -5, 0],
+                          scale: [1, 1.05, 1]
                         }}
                         transition={{
-                          duration: 4,
+                          duration: 3,
                           repeat: Infinity,
-                          ease: "easeInOut"
+                          ease: "easeInOut",
+                          delay: index * 0.2
                         }}
-                        className={cn("w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br", stat.gradient, "flex items-center justify-center shadow-2xl")}
+                        className={cn(
+                          "w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto rounded-xl sm:rounded-2xl",
+                          "bg-gradient-to-br", stat.gradient,
+                          "flex items-center justify-center",
+                          "shadow-2xl relative overflow-hidden"
+                        )}
                       >
-                        <stat.icon className="h-12 w-12 text-white" />
+                        {/* Pulsing Glow Effect */}
+                        <motion.div
+                          className={cn("absolute inset-0 rounded-xl sm:rounded-2xl", "bg-gradient-to-br", stat.gradient)}
+                          animate={{
+                            opacity: [0.5, 1, 0.5],
+                            scale: [1, 1.2, 1]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        ></motion.div>
+                        <stat.icon className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-white relative z-10" />
                       </motion.div>
                     </CardItem>
                     
+                    {/* Animated Value */}
                     <CardItem
                       translateZ="100"
                       as="div"
-                      className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-4 leading-tight"
+                      className="text-center mb-3 sm:mb-4"
                     >
-                      {stat.value}
+                      <motion.div
+                        animate={{
+                          scale: [1, 1.05, 1]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: index * 0.3
+                        }}
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent leading-tight"
+                      >
+                        {stat.value}
+                      </motion.div>
                     </CardItem>
                     
+                    {/* Label with Fade Animation */}
                     <CardItem
                       translateZ="80"
                       as="p"
-                      className="text-gray-400 text-center text-xl font-semibold"
+                      className="text-gray-400 text-center text-sm sm:text-base md:text-lg lg:text-xl font-semibold"
                     >
-                      {stat.label}
+                      <motion.span
+                        animate={{
+                          opacity: [0.7, 1, 0.7]
+                        }}
+                        transition={{
+                          duration: 2.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: index * 0.4
+                        }}
+                      >
+                        {stat.label}
+                      </motion.span>
                     </CardItem>
+
+                    {/* Decorative Particles */}
+                    <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 opacity-50">
+                      <motion.div
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [0.5, 1, 0.5]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                        className="w-full h-full rounded-full bg-current"
+                      ></motion.div>
+                    </div>
                   </CardBody>
                 </CardContainer>
               </motion.div>
