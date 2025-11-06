@@ -37,7 +37,7 @@ const Portfolio = () => {
       <div className="h-28 sm:h-32 md:h-36"></div>
 
       {/* SECTION 1: DRAMATIC HERO */}
-      <LampContainer className="pb-6 md:pb-10 pt-0 !min-h-[40vh] md:!min-h-[50vh]">
+      <LampContainer className="pb-6 md:pb-10 pt-0 !min-h-[40vh] md:!min-h-[60vh]">
         <motion.div
           style={{ opacity, scale }}
           className="flex flex-col items-center justify-center relative z-[100] -mt-16 sm:-mt-20 md:-mt-24"

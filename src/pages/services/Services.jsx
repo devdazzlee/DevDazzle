@@ -9,7 +9,7 @@ import Footer from '../../Footer/Footer'
 import { Helmet } from 'react-helmet'
 
 const Services = () => {
-  const fiverrProfileUrl = "https://www.fiverr.com/ahmed_raza892";
+  const fiverrProfileUrl = "https://www.fiverr.com/users/muhammadraza173";
 
   return (
     <>

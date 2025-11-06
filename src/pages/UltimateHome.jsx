@@ -8,6 +8,7 @@ import NewFooter from '../components/layout/NewFooter';
 import { Button } from '../components/ui/button';
 import { CardContainer, CardBody, CardItem } from '../components/ui/3d-card';
 import { InfiniteMovingCards } from '../components/ui/infinite-moving-cards';
+import founderImage from '../Images/profile-pic (1).png';
 import { LampContainer } from '../components/ui/lamp';
 import { TESTIMONIALS } from '../utils/company-data';
 import { cn } from '../lib/utils';
@@ -779,7 +780,7 @@ const UltimateHome = () => {
             <div className="relative rounded-3xl p-[2px] bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 w-full">
               <div className="bg-gradient-to-br from-slate-950 to-slate-900 relative group/card hover:shadow-2xl hover:shadow-cyan-500/60 rounded-3xl p-8 lg:p-12">
                 <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  {/* AR Icon */}
+                  {/* Founder Image */}
                   <div className="w-full flex justify-center md:justify-start">
                     <motion.div
                       animate={{
@@ -791,10 +792,14 @@ const UltimateHome = () => {
                         repeat: Infinity,
                         ease: "easeInOut"
                       }}
-                      className="w-full max-w-[250px] sm:max-w-[300px] aspect-square rounded-3xl bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold shadow-2xl shadow-purple-500/50 relative overflow-hidden"
+                      className="w-full max-w-[250px] sm:max-w-[300px] aspect-square rounded-3xl bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-2xl shadow-purple-500/50 relative overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-purple-500/20 to-pink-400/20 animate-pulse"></div>
-                      <div className="relative z-10">AR</div>
+                      <img 
+                        src={founderImage} 
+                        alt="Ahmed Raza - Founder & CEO" 
+                        className="w-full h-full object-cover rounded-3xl relative z-10"
+                      />
                     </motion.div>
                   </div>
 

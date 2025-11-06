@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Github, Twitter, Linkedin, Instagram, Mail, 
-  MapPin, Phone, ArrowRight 
+  MapPin, Phone, ArrowRight, Youtube, Briefcase, ShoppingBag
 } from 'lucide-react';
 import { Button } from '../ui/button';
 
@@ -35,10 +35,13 @@ const NewFooter = () => {
   ];
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/devdazzle', label: 'GitHub' },
-    { icon: Twitter, href: 'https://twitter.com/devdazzle', label: 'Twitter' },
-    { icon: Linkedin, href: 'https://linkedin.com/company/devdazzle', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://instagram.com/devdazzle', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/ahmed-raza-486b21259/', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://x.com/AhmedRa93376929', label: 'Twitter/X' },
+    { icon: Instagram, href: 'https://www.instagram.com/nott__ahmed/profilecard/?igsh=MXR5OHlqbzQza3NxMg==', label: 'Instagram' },
+    { icon: Youtube, href: 'https://www.youtube.com/@DevDazzle798', label: 'YouTube' },
+    { icon: Github, href: 'https://github.com/ahmedraza', label: 'GitHub' },
+    { icon: Briefcase, href: 'https://www.upwork.com/freelancers/~013ab8e9e8d676c21b', label: 'Upwork' },
+    { icon: ShoppingBag, href: 'https://www.fiverr.com/users/muhammadraza173', label: 'Fiverr' }
   ];
 
   return (
@@ -159,7 +162,7 @@ const NewFooter = () => {
 
             {/* Social Links */}
             <h4 className="font-semibold mb-4">Follow Us</h4>
-            <div className="flex gap-3">
+            <div className="flex gap-3.5 flex-wrap px-2">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}

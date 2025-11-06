@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import {  FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub,
-  FaEnvelope, FaPhone, FaMapMarkerAlt, FaArrowRight
+import {  FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub, FaYoutube,
+  FaEnvelope, FaPhone, FaMapMarkerAlt, FaArrowRight, FaExternalLinkAlt
 } from 'react-icons/fa';
 import { NAV_LINKS, SOCIAL_LINKS, CONTACT_INFO } from '../../utils/constants';
 import ScrollReveal from '../animations/ScrollReveal';
@@ -26,7 +26,9 @@ const Footer = () => {
     FaTwitter,
     FaLinkedin,
     FaInstagram,
-    FaGithub
+    FaGithub,
+    FaYoutube,
+    FaExternalLinkAlt
   };
 
   return (

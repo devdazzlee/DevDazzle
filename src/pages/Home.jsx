@@ -11,8 +11,9 @@ import { BackgroundGradient } from '../components/ui/background-gradient';
 import { BentoGrid, BentoGridItem } from '../components/ui/bento-grid';
 import { InfiniteMovingCards } from '../components/ui/infinite-moving-cards';
 import { Spotlight } from '../components/ui/spotlight';
-import { TESTIMONIALS } from '../utils/company-data';
+import { TESTIMONIALS, COMPANY_INFO } from '../utils/company-data';
 import { cn } from '../lib/utils';
+import founderImage from '../Images/profile-pic (1).png';
 
 const Home = () => {
   return (
@@ -400,6 +401,65 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FOUNDER SECTION */}
+      <section className="py-32 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black relative overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <BackgroundGradient className="rounded-[30px] p-1">
+              <div className="bg-slate-950 rounded-[28px] p-8 lg:p-12">
+                <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="relative"
+                  >
+                    <div className="w-full aspect-square rounded-3xl bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 flex items-center justify-center shadow-2xl shadow-purple-500/50 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-grid-white/[0.05]"></div>
+                      <img 
+                        src={founderImage} 
+                        alt="Ahmed Raza - Founder & CEO" 
+                        className="w-full h-full object-cover rounded-3xl relative z-10"
+                      />
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                  >
+                    <h3 className="text-4xl md:text-5xl font-display font-bold mb-4 text-neutral-50">
+                      Meet Ahmed Raza
+                    </h3>
+                    <p className="text-2xl text-purple-400 mb-6 font-semibold">{COMPANY_INFO.founder.title}</p>
+                    <p className="text-lg text-neutral-300 mb-6 leading-relaxed">
+                      {COMPANY_INFO.founder.bio}
+                    </p>
+                    <p className="text-lg text-neutral-300 mb-8 leading-relaxed">
+                      Under his leadership, DevDazzle has delivered <span className="text-purple-400 font-bold">500+ successful projects</span>, served <span className="text-pink-400 font-bold">250+ clients globally</span>, 
+                      and pioneered innovative solutions in AI, Web3, and enterprise software.
+                    </p>
+                    <div className="flex gap-4">
+                      <Link to="/about">
+                        <Button variant="gradient" size="lg">
+                          Learn More About Our Team
+                        </Button>
+                      </Link>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </BackgroundGradient>
+          </motion.div>
         </div>
       </section>
 

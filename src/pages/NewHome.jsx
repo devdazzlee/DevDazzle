@@ -8,6 +8,7 @@ import NewFooter from '../components/layout/NewFooter';
 import { Button } from '../components/ui/button';
 import { CardContainer, CardBody, CardItem } from '../components/ui/3d-card';
 import { BackgroundGradient } from '../components/ui/background-gradient';
+import founderImage from '../Images/profile-pic (1).png';
 import { InfiniteMovingCards } from '../components/ui/infinite-moving-cards';
 import { Spotlight } from '../components/ui/spotlight';
 import { LampContainer } from '../components/ui/lamp';
@@ -573,9 +574,13 @@ const NewHome = () => {
                     viewport={{ once: true }}
                     className="relative"
                   >
-                    <div className="w-full aspect-square rounded-3xl bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 flex items-center justify-center text-white text-9xl font-display font-bold shadow-2xl shadow-purple-500/50 relative overflow-hidden">
+                    <div className="w-full aspect-square rounded-3xl bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 flex items-center justify-center shadow-2xl shadow-purple-500/50 relative overflow-hidden">
                       <div className="absolute inset-0 bg-grid-white/[0.05]"></div>
-                      <div className="relative z-10">AR</div>
+                      <img 
+                        src={founderImage} 
+                        alt="Ahmed Raza - Founder & CEO" 
+                        className="w-full h-full object-cover rounded-3xl relative z-10"
+                      />
                     </div>
                   </motion.div>
 

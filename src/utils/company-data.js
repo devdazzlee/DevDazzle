@@ -1,6 +1,8 @@
 // Company Information - DevDazzle
 // Founder: Ahmed Raza
 
+import founderImage from '../Images/profile-pic (1).png';
+
 export const COMPANY_INFO = {
   name: "DevDazzle",
   tagline: "Transforming Digital Dreams into Reality",
@@ -8,11 +10,15 @@ export const COMPANY_INFO = {
     name: "Ahmed Raza",
     title: "Founder & CEO",
     bio: "Visionary entrepreneur with 15+ years of experience in digital innovation, AI, and software development. Ahmed founded DevDazzle with a mission to democratize access to cutting-edge technology.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    image: founderImage,
     social: {
-      linkedin: "https://linkedin.com/in/ahmed-raza",
-      twitter: "https://twitter.com/ahmedraza",
-      github: "https://github.com/ahmedraza"
+      linkedin: "https://www.linkedin.com/in/ahmed-raza-486b21259/",
+      twitter: "https://x.com/AhmedRa93376929",
+      github: "https://github.com/ahmedraza",
+      instagram: "https://www.instagram.com/nott__ahmed/profilecard/?igsh=MXR5OHlqbzQza3NxMg==",
+      youtube: "https://www.youtube.com/@DevDazzle798",
+      upwork: "https://www.upwork.com/freelancers/~013ab8e9e8d676c21b",
+      fiverr: "https://www.fiverr.com/users/muhammadraza173"
     }
   },
   established: "2008",
@@ -37,7 +43,7 @@ export const TEAM_MEMBERS = [
     id: 1,
     name: "Ahmed Raza",
     role: "Founder & CEO",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    image: founderImage,
     bio: "Leading DevDazzle's vision for digital transformation",
     expertise: ["Strategy", "Leadership", "Innovation"],
     social: {

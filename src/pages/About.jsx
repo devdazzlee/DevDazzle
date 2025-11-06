@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Linkedin, Twitter, Github, Award, Target, Heart, Rocket, Globe, Zap, Shield, ArrowRight, Sparkles } from 'lucide-react';
+import { Linkedin, Twitter, Github, Award, Target, Heart, Rocket, Globe, Zap, Shield, ArrowRight, Sparkles, Instagram, Youtube, Briefcase, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MegaNavbar from '../components/layout/MegaNavbar';
 import NewFooter from '../components/layout/NewFooter';
@@ -12,6 +12,7 @@ import { InfiniteMovingCards } from '../components/ui/infinite-moving-cards';
 import { Button } from '../components/ui/button';
 import { COMPANY_INFO, TEAM_MEMBERS, STATS, TESTIMONIALS } from '../utils/company-data';
 import { cn } from '../lib/utils';
+import founderImage from '../Images/profile-pic (1).png';
 
 const About = () => {
   const { scrollYProgress } = useScroll();
@@ -49,7 +50,7 @@ const About = () => {
       <div className="h-28 sm:h-32 md:h-36"></div>
 
       {/* SECTION 1: DRAMATIC HERO */}
-      <LampContainer className="pb-6 md:pb-10 pt-0 !min-h-[40vh] md:!min-h-[50vh]">
+      <LampContainer className="pb-6 md:pb-10 pt-0 !min-h-[40vh] md:!min-h-[65vh]">
         <motion.div
           style={{ opacity, scale }}
           className="flex flex-col items-center justify-center relative z-[100] -mt-16 sm:-mt-20 md:-mt-24"
@@ -114,9 +115,13 @@ const About = () => {
                 <CardItem translateZ="100" className="w-full">
                   <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-start">
                     <CardItem translateZ="50" className="flex-shrink-0 w-full lg:w-auto flex justify-center">
-                      <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-64 lg:h-64 rounded-2xl bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold shadow-2xl shadow-purple-500/50 relative overflow-hidden">
+                      <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-64 lg:h-64 rounded-2xl bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-2xl shadow-purple-500/50 relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-pink-400/20 animate-pulse"></div>
-                        <span className="relative z-10">AR</span>
+                        <img 
+                          src={founderImage} 
+                          alt="Ahmed Raza - Founder & CEO" 
+                          className="w-full h-full object-cover rounded-2xl relative z-10"
+                        />
                       </div>
                     </CardItem>
                     <CardItem translateZ="60" className="flex-1 w-full lg:w-auto">
@@ -130,11 +135,15 @@ const About = () => {
                       <p className="text-gray-400 mb-6 lg:mb-8 leading-relaxed text-sm lg:text-base">
                         Under his leadership, DevDazzle has delivered <span className="text-cyan-400 font-bold">500+ projects</span> to <span className="text-purple-400 font-bold">250+ global clients</span> across <span className="text-pink-400 font-bold">30+ countries</span>, achieving a <span className="text-cyan-400 font-bold">98% satisfaction rate</span> and industry recognition from Forbes, TechCrunch, and Inc Magazine.
                       </p>
-                      <div className="flex gap-4 justify-center lg:justify-start">
+                      <div className="flex gap-5 justify-center lg:justify-start flex-wrap px-2">
                         {[
-                          { icon: Linkedin, href: COMPANY_INFO.founder.social.linkedin, color: "from-blue-500 to-blue-600" },
-                          { icon: Twitter, href: COMPANY_INFO.founder.social.twitter, color: "from-sky-500 to-sky-600" },
-                          { icon: Github, href: COMPANY_INFO.founder.social.github, color: "from-gray-500 to-gray-600" }
+                          { icon: Linkedin, href: COMPANY_INFO.founder.social.linkedin, color: "from-blue-500 to-blue-600", label: "LinkedIn" },
+                          { icon: Twitter, href: COMPANY_INFO.founder.social.twitter, color: "from-sky-500 to-sky-600", label: "Twitter/X" },
+                          { icon: Github, href: COMPANY_INFO.founder.social.github, color: "from-gray-500 to-gray-600", label: "GitHub" },
+                          { icon: Instagram, href: COMPANY_INFO.founder.social.instagram, color: "from-pink-500 to-purple-600", label: "Instagram" },
+                          { icon: Youtube, href: COMPANY_INFO.founder.social.youtube, color: "from-red-500 to-red-600", label: "YouTube" },
+                          { icon: Briefcase, href: COMPANY_INFO.founder.social.upwork, color: "from-green-500 to-emerald-600", label: "Upwork" },
+                          { icon: ShoppingBag, href: COMPANY_INFO.founder.social.fiverr, color: "from-green-400 to-teal-500", label: "Fiverr" }
                         ].map((social, idx) => (
                           <motion.a
                             key={idx}
@@ -144,6 +153,8 @@ const About = () => {
                             whileHover={{ scale: 1.1, rotate: 5 }}
                             whileTap={{ scale: 0.95 }}
                             className={cn("w-12 h-12 rounded-xl bg-gradient-to-br", social.color, "flex items-center justify-center shadow-lg hover:shadow-xl transition-all")}
+                            aria-label={social.label}
+                            title={social.label}
                           >
                             <social.icon className="h-6 w-6 text-white" />
                           </motion.a>
@@ -402,7 +413,15 @@ const About = () => {
                     <CardItem translateZ="50" className="text-center">
                       <div className="w-32 h-32 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-4xl font-bold shadow-xl relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-pink-400/20 animate-pulse"></div>
-                        <span className="relative z-10">{member.name.split(' ').map(n => n[0]).join('')}</span>
+                        {member.image && member.name === "Ahmed Raza" ? (
+                          <img 
+                            src={member.image} 
+                            alt={member.name} 
+                            className="w-full h-full object-cover rounded-2xl relative z-10"
+                          />
+                        ) : (
+                          <span className="relative z-10">{member.name.split(' ').map(n => n[0]).join('')}</span>
+                        )}
                       </div>
                       <h3 className="text-2xl font-display font-bold mb-2 text-white">{member.name}</h3>
                       <p className="text-purple-400 mb-4 font-semibold">{member.role}</p>

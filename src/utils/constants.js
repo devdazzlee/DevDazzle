@@ -373,11 +373,13 @@ export const FAQ_DATA = [
 
 // Social Media Links
 export const SOCIAL_LINKS = [
-  { name: 'Facebook', icon: 'FaFacebook', url: '#' },
-  { name: 'Twitter', icon: 'FaTwitter', url: 'https://twitter.com/DevDazzle798' },
-  { name: 'LinkedIn', icon: 'FaLinkedin', url: '#' },
-  { name: 'Instagram', icon: 'FaInstagram', url: '#' },
-  { name: 'GitHub', icon: 'FaGithub', url: '#' }
+  { name: 'LinkedIn', icon: 'FaLinkedin', url: 'https://www.linkedin.com/in/ahmed-raza-486b21259/' },
+  { name: 'Twitter', icon: 'FaTwitter', url: 'https://x.com/AhmedRa93376929' },
+  { name: 'Instagram', icon: 'FaInstagram', url: 'https://www.instagram.com/nott__ahmed/profilecard/?igsh=MXR5OHlqbzQza3NxMg==' },
+  { name: 'YouTube', icon: 'FaYoutube', url: 'https://www.youtube.com/@DevDazzle798' },
+  { name: 'GitHub', icon: 'FaGithub', url: 'https://github.com/ahmedraza' },
+  { name: 'Upwork', icon: 'FaExternalLinkAlt', url: 'https://www.upwork.com/freelancers/~013ab8e9e8d676c21b' },
+  { name: 'Fiverr', icon: 'FaExternalLinkAlt', url: 'https://www.fiverr.com/users/muhammadraza173' }
 ];
 
 // Contact Information
