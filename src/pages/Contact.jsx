@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Clock, Globe, CheckCircle, ArrowRight, Sparkles, Zap, Users, Award, Star } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, Globe, CheckCircle, ArrowRight, Sparkles, Zap, Users, Award, Star, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MegaNavbar from '../components/layout/MegaNavbar';
 import NewFooter from '../components/layout/NewFooter';
 import { LampContainer } from '../components/ui/lamp';
 import { Button } from '../components/ui/button';
+import { useToast } from '../components/ui/toast';
 import { COMPANY_INFO, STATS } from '../utils/company-data';
+import { API_ENDPOINTS } from '../utils/api';
 import { cn } from '../lib/utils';
 
 const Contact = () => {
@@ -21,18 +23,44 @@ const Contact = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { showToast } = useToast();
 
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.9]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', company: '', phone: '', subject: '', message: '' });
-    }, 3000);
+    setLoading(true);
+
+    try {
+      const response = await fetch(API_ENDPOINTS.contact, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+        showToast('Message sent successfully! We\'ll get back to you soon.', 'success');
+        setFormData({ name: '', email: '', company: '', phone: '', subject: '', message: '' });
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5000);
+      } else {
+        showToast(data.error || 'Failed to send message. Please try again.', 'error');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      showToast('Network error. Please check your connection and try again.', 'error');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -75,21 +103,22 @@ const Contact = () => {
       <div className="h-28 sm:h-32 md:h-36"></div>
 
       {/* SECTION 1: DRAMATIC HERO */}
-      <LampContainer className="pb-10 md:pb-20 pt-0">
+      <LampContainer className="pb-6 md:pb-10 pt-0 !min-h-[40vh] md:!min-h-[50vh]">
         <motion.div
           style={{ opacity, scale }}
-          className="flex flex-col items-center justify-center relative z-[100] -mt-8 sm:-mt-12 md:-mt-16"
+          className="flex flex-col items-center justify-center relative z-[100] -mt-16 sm:-mt-20 md:-mt-24"
         >
           <motion.div
             initial={{ y: 0, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="mb-8"
+            className="mb-4 sm:mb-6 md:mb-8"
           >
-            <div className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-cyan-400/50 md:border-2 rounded-full px-4 md:px-8 py-2 md:py-4 shadow-2xl shadow-cyan-500/50 mx-4">
-              <Sparkles className="h-4 w-4 md:h-6 md:w-6 text-cyan-400 animate-pulse flex-shrink-0" />
-              <span className="text-xs sm:text-sm md:text-lg font-bold text-white text-center">
-                24/7 Support • 24hr Response • Global Offices
+            <div className="flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-cyan-400/50 md:border-2 rounded-full px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 shadow-2xl shadow-cyan-500/50 backdrop-blur-sm max-w-[calc(100vw-2rem)] sm:max-w-none">
+              <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-6 md:w-6 text-cyan-400 animate-pulse flex-shrink-0" />
+              <span className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white text-center leading-tight whitespace-nowrap">
+                <span className="hidden sm:inline">24/7 Support • 24hr Response • Global Offices</span>
+                <span className="sm:hidden">24/7 Support • <span className="text-cyan-400">Global</span></span>
               </span>
             </div>
           </motion.div>
@@ -199,7 +228,8 @@ const Contact = () => {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white transition-all"
+                            disabled={loading}
+                            className="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                             placeholder="Your name"
                           />
                         </div>
@@ -211,7 +241,8 @@ const Contact = () => {
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white transition-all"
+                            disabled={loading}
+                            className="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                             placeholder="your@email.com"
                           />
                         </div>
@@ -223,7 +254,8 @@ const Contact = () => {
                               name="company"
                               value={formData.company}
                               onChange={handleChange}
-                              className="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white transition-all"
+                              disabled={loading}
+                              className="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                               placeholder="Your company"
                             />
                           </div>
@@ -234,7 +266,8 @@ const Contact = () => {
                               name="phone"
                               value={formData.phone}
                               onChange={handleChange}
-                              className="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white transition-all"
+                              disabled={loading}
+                              className="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                               placeholder="+1 (555) 123-4567"
                             />
                           </div>
@@ -247,7 +280,8 @@ const Contact = () => {
                             value={formData.subject}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white transition-all"
+                            disabled={loading}
+                            className="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                             placeholder="What's this about?"
                           />
                         </div>
@@ -258,14 +292,30 @@ const Contact = () => {
                             value={formData.message}
                             onChange={handleChange}
                             required
+                            disabled={loading}
                             rows="6"
-                            className="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white transition-all resize-none"
+                            className="w-full px-4 py-3 rounded-lg bg-black/50 border border-gray-700 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 text-white transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                             placeholder="Tell us about your project..."
                           ></textarea>
                         </div>
-                        <Button type="submit" variant="gradient" className="w-full" size="lg">
-                          <Send className="mr-2 h-5 w-5" />
-                          Send Message
+                        <Button 
+                          type="submit" 
+                          variant="gradient" 
+                          className="w-full" 
+                          size="lg"
+                          disabled={loading}
+                        >
+                          {loading ? (
+                            <>
+                              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                              Sending...
+                            </>
+                          ) : (
+                            <>
+                              <Send className="mr-2 h-5 w-5" />
+                              Send Message
+                            </>
+                          )}
                         </Button>
                       </form>
                     )}

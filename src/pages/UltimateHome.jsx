@@ -29,22 +29,23 @@ const UltimateHome = () => {
       <div className="h-28 sm:h-32 md:h-36"></div>
 
       {/* SECTION 1: DRAMATIC LAMP HERO - NO COLLISION! */}
-      <LampContainer className="pt-0">
+      <LampContainer className="pt-0 !min-h-[50vh] sm:!min-h-[60vh] md:!min-h-[80vh]">
         <motion.div
           style={{ opacity, scale }}
-          className="flex flex-col items-center justify-center relative z-[1] -mt-8 sm:-mt-12 md:-mt-16"
+          className="flex flex-col items-center justify-center relative z-[1] -mt-4 sm:-mt-8 md:-mt-12"
         >
           {/* Founder Badge - Fixed Position */}
           <motion.div
             initial={{ y: 0, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="mb-6 md:mb-8"
+            className="mb-4 sm:mb-6 md:mb-8"
           >
-            <div className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-cyan-400/50 md:border-2 rounded-full px-4 md:px-8 py-2 md:py-4 shadow-2xl shadow-cyan-500/50 backdrop-blur-sm">
-              <Sparkles className="h-4 w-4 md:h-6 md:w-6 text-cyan-400 animate-pulse flex-shrink-0" />
-              <span className="text-xs sm:text-sm md:text-lg font-bold text-white text-center whitespace-nowrap">
-                Founded by <span className="text-cyan-400">Ahmed Raza</span> | Est. 2008 | 250+ Clients
+            <div className="flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-cyan-400/50 md:border-2 rounded-full px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 shadow-2xl shadow-cyan-500/50 backdrop-blur-sm max-w-[calc(100vw-2rem)] sm:max-w-none">
+              <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-6 md:w-6 text-cyan-400 animate-pulse flex-shrink-0" />
+              <span className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white text-center leading-tight whitespace-nowrap">
+                <span className="hidden sm:inline">Founded by <span className="text-cyan-400">Ahmed Raza</span> | Est. 2008 | 250+ Clients</span>
+                <span className="sm:hidden"><span className="text-cyan-400">Ahmed Raza</span> • 250+ Clients</span>
               </span>
             </div>
           </motion.div>

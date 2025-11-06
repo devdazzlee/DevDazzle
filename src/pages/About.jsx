@@ -49,21 +49,22 @@ const About = () => {
       <div className="h-28 sm:h-32 md:h-36"></div>
 
       {/* SECTION 1: DRAMATIC HERO */}
-      <LampContainer className="pb-10 md:pb-20 pt-0">
+      <LampContainer className="pb-6 md:pb-10 pt-0 !min-h-[40vh] md:!min-h-[50vh]">
         <motion.div
           style={{ opacity, scale }}
-          className="flex flex-col items-center justify-center relative z-[100] -mt-8 sm:-mt-12 md:-mt-16"
+          className="flex flex-col items-center justify-center relative z-[100] -mt-16 sm:-mt-20 md:-mt-24"
         >
           <motion.div
             initial={{ y: 0, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="mb-8"
+            className="mb-4 sm:mb-6 md:mb-8"
           >
-            <div className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-cyan-400/50 md:border-2 rounded-full px-4 md:px-8 py-2 md:py-4 shadow-2xl shadow-cyan-500/50 backdrop-blur-sm">
-              <Sparkles className="h-4 w-4 md:h-6 md:w-6 text-cyan-400 animate-pulse flex-shrink-0" />
-              <span className="text-xs sm:text-sm md:text-lg font-bold text-white text-center">
-                Founded by <span className="text-cyan-400">Ahmed Raza</span> | Est. 2008 | 15+ Years
+            <div className="flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border border-cyan-400/50 md:border-2 rounded-full px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 shadow-2xl shadow-cyan-500/50 backdrop-blur-sm max-w-[calc(100vw-2rem)] sm:max-w-none">
+              <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-6 md:w-6 text-cyan-400 animate-pulse flex-shrink-0" />
+              <span className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white text-center leading-tight whitespace-nowrap">
+                <span className="hidden sm:inline">Founded by <span className="text-cyan-400">Ahmed Raza</span> | Est. 2008 | 15+ Years</span>
+                <span className="sm:hidden"><span className="text-cyan-400">Ahmed Raza</span> • Est. 2008</span>
               </span>
             </div>
           </motion.div>
@@ -72,7 +73,7 @@ const About = () => {
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
-            className="bg-gradient-to-br from-white to-gray-400 py-4 md:py-6 bg-clip-text text-center text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-transparent leading-tight px-4"
+            className="bg-gradient-to-br from-white to-gray-400 py-2 md:py-4 bg-clip-text text-center text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-transparent leading-tight px-4"
           >
             ABOUT US
           </motion.h1>
@@ -81,7 +82,7 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="mt-12 text-xl md:text-2xl text-white/90 max-w-4xl text-center leading-relaxed font-medium px-4"
+            className="mt-6 md:mt-8 text-xl md:text-2xl text-white/90 max-w-4xl text-center leading-relaxed font-medium px-4"
           >
             Transforming digital dreams into reality since 2008. We're not just developers—we're innovators, creators, and digital transformation partners.
           </motion.p>
