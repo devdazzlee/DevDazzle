@@ -58,7 +58,6 @@ const MegaNavbar = () => {
   useEffect(() => {
     if (servicesOpen && servicesButtonRef.current && dropdownRef.current) {
       const buttonRect = servicesButtonRef.current.getBoundingClientRect();
-      const dropdown = dropdownRef.current;
       const viewportWidth = window.innerWidth;
       const dropdownMaxWidth = 850;
       const dropdownWidth = Math.min(dropdownMaxWidth, viewportWidth - 40);
